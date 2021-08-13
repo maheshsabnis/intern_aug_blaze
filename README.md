@@ -40,3 +40,8 @@
                     - document.removeEventListener('[Event-Name]', [CallBack-Function]);    
             - Used to read/write properties of the UI element
                 - The 'value' attribute property is 'string' by default. Parse it to integer for Numeric Operations        
+
+
+
+# Assignments
+# Date: 13-08: Create a Simple Calculator like Windows Calculator by adding a wincalc.html page in the application 
