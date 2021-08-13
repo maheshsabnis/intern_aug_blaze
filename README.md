@@ -1,5 +1,5 @@
 # Date:13-08-2021
-# Browser Features
+# Browser Features for Forned End Apps
 1. Runtime Host
     - Its acts as a host for the JavaScript Application loaded in browser
         - Parse and Compile JavaScript Code
