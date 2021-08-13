@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Inline JavaScript-->
+    <script>
+        // subscribe to the load event of the Browser's window Object
+        window.onload = function(){
+            // read all input buttons based on on id
+            
+            var btnadd = document.getElementById('btnadd');
+            // subscribe to the click event of the button
+            btnadd.addEventListener('click', function(){
+                // read value eneter in input elements based on id
+                var n1 = document.getElementById('n1').value;
+                var n2 = document.getElementById('n2').value;
+                // parse values entered into input:text element into Number  
+                var res = parseInt( n1) + parseInt( n2);
+                document.getElementById('res').value = res;
+            },false);
+            var btnsub = document.getElementById('btnsub');
+            var btnmult = document.getElementById('btnmult');
+            var btndiv = document.getElementById('btndiv');
+             // subscribe to the click event of the button
+             btndiv.addEventListener('click', function(){
+                 var res = 0;
+                // read value eneter in input elements based on id
+                var n1 = document.getElementById('n1').value;
+                var n2 = document.getElementById('n2').value;
+                // parse values entered into input:text element into Number  
+                
+                var x = parseInt( n1);
+                var y = parseInt( n2);
+                if(y == 0 || y < 0) {
+                    res = 0;
+                } else {   
+                     res =  x/y;
+                }    
+                document.getElementById('res').value = res;
+            },false);
 
+        }
+    </script>
+</head>
+<body>
+    <h1>The First Demo for Variables</h1>
+    <div>
+        N1 <input type="text" id="n1">
+    </div>
+    <br/>
+    <div>
+        N2 <input type="text" id="n2">
+    </div>
+    <br/>
+    <div>
+        Result <input type="text" id="res">
+    </div>
+    <br/>
+    <div>
+        <input type="button" value="add" id="btnadd">
+        <input type="button" value="sub" id="btnsub">
+        <input type="button" value="mult" id="btnmult">
+        <input type="button" value="div" id="btndiv">
+    </div>
+</body>
+</html>
