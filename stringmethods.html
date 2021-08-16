@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./stringmethods.js"></script>
+    <script>
+        window.onload = function(){
+            var dvstring = document.getElementById('dvstring');
+            // since the stringmethods.js script is loaded in browser
+            // all the global declarations are directly accessible
+            // e.g. mystring is globally declared so it is directly 
+            // accessible in HTML page  
+            dvstring.innerText = mystring;  
+
+            var btnlength = document.getElementById('btnlength');
+            btnlength.addEventListener('click', function(){
+                // call the function from the script
+               var length  =  getStringLength();
+               document.getElementById('spLength').innerHTML = length;
+            },false);
+
+            var btnChangeCase = document.getElementById('btnChangeCase');
+            btnChangeCase.addEventListener('click', function(){
+                // read value entered into the textbox
+               var c = document.getElementById('txtcase').value;     
+               var str = changeCase(c);
+               document.getElementById('spCase').innerHTML = str;
+            },false);
+
+            var btnSlice = document.getElementById('btnSlice');
+            btnSlice.addEventListener('click', function(){
+               // if positive indexes are passed the strinbg will be sliced from starting from 0th indexd
+               // if -ve indexex are passed then the strinbg will be sliced from end of the string
+               var str = sliceString(-12,-4);
+               document.getElementById('spCase').innerHTML = str;
+            },false);
+
+            var btnsubStr = document.getElementById('btnsubStr');
+            btnsubStr.addEventListener('click', function(){
+               
+               var str = getSubSubString(10,8);
+               document.getElementById('spCase').innerHTML = str;
+            },false);
+        }
+    </script>
+</head>
+<body>
+    <div id="dvstring"></div>
+    <hr/>
+    <input type="button" value="Print Length" id="btnlength"/>
+    <span id="spLength"></span>
+    <br>
+    Enter the Extected Case as (U) for Upper and L for Lower
+    <br>
+    <input type="text" id="txtcase">
+    <br>
+    <input type="button" value="Change Case" id="btnChangeCase"/>
+    <br>
+    <span id="spCase"></span>
+    <br>
+    
+    <input type="button" value="Slice" id="btnSlice"/>
+    <br>
+    
+    <input type="button" value="Substring" id="btnsubStr"/>
+</body>
+</html>
