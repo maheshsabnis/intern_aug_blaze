@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <script>
+        window.onload = function(){
+            var b1 = document.getElementById('b1');
+            b1.addEventListener('click', function(){
+                
+                var inputs = document.getElementsByClassName("c1");
+                for(var i=0;i<inputs.length;i++) {
+                    // setting the style
+                    inputs[i].style.backgroundColor="red";
+                    inputs[i].style.color="yellow";
+                    inputs[i].style.fontSize = "40px";    
+                }
+            },false);
+        };
+    </script>
+</head>
+<body>
+    <h1>Read All HTML Input Elements</h1>
+    <div>
+        <input type="text" id="t1" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t2" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t3" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t4" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t5" class="c2">
+    </div>
+    <br>
+    <div>
+        <input type="button" id="b1" value="clear">
+    </div>
+    <br>
+</body>
+</html>

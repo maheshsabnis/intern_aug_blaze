@@ -80,8 +80,29 @@
         - The object to store Textual data
         - String as an array of characters
         - Its has its own methods to maipulate strings        
-
-# Assignments
+7. Use the 'document' object for
+    - Querying the DOM ELement aka HTML Element
+        - getElementById('[ID]');
+            - Returns a single HtmlElement object from DOM Tree(?)
+                - DOM Tree is HTML elements currently loaded in Browser
+                - Tese may be statically Loaded or Dynamically Loaded
+        - getElementsByName('[Value-of-Name-Attribute-of-HTML-Element]')        
+            - Returns Collection or array of HTML Elements
+        - getElementsByTagName('[TAG-NAME]') 
+            - Return array of HTML elements based on tag name. e.g. 'input'
+        - getElementsbyClassName('[.value-of-Class-attribute-of-HTML-ELement]')
+            - return array of HTML elements based on class name  
+            - if CSS 3 based selectors are used to query DOM Tree then user 'class' attribute      
+        - querySelector('[SELECTOR]') 
+            - Method to quey DOM Tree based on the SELECTOR Expression   
+    - Attach or detach event for the HTML Element
+        - Events Specific to HTML Elements aka Default Events
+            - input:text, keyup, change, blur
+            - input:button, click
+            - select, change
+            - input:radio, click
+            - input:check, click
+# Assignments 
 # Date: 13-08: Create a Simple Calculator like Windows Calculator by adding a wincalc.html page in the application 
 
 # Date 16-08-2021
@@ -95,3 +116,14 @@
     - Add a method of name vowels() to return numberb of vowels() in string e.g. a,e,i,u,o,u            
     - Add a method of name getNoOfStatements() to return number of statements in string.
 
+# Date 17-08-2021
+1. Create a CheckBox list, that will show list of Courses selected by the student. Courses are stored in the Course array as follows
+    - Courses=[ {CourseId:101,CourseName:'C++', Fees: 1000}, .......  ]
+        - Add Multiple Courses e.g. Java, C#, .NET, JSP, Node.js, React, Angular, ect.
+    - USer can select Multiple Courses. The Total COurse fees must be shown to the user based on the Course Selection           
+2. CReate a Table Dynamically based on Products ARray as
+    - Products = [{ProductId:101, ProductName:"Laptop", CategoryName:"Electronics", Price:55666}.....]
+        - Add 20 Records for Categories as Electronics, Electrical, Fashion, Food
+    - Above the table display RadioButton List showing Categories
+    - When the End-USer select a Category by clicking on the RAdio Button, the Table SHould SHow only those Products         
+    - Note: Do not USe ES 6 Methods like forEach, map(), filter(), find(), replace(), match(), etc.

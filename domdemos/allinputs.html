@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var b1 = document.getElementById('b1');
+            b1.addEventListener('click', function(){
+                // reading an individuale element of same type for
+                // same operation will increase the length of code
+                // document.getElementById('t1').value = '';
+                // document.getElementById('t2').value = '';
+                // document.getElementById('t3').value = '';
+                // document.getElementById('t4').value = '';
+                 
+                // read all input elements
+                // selector to exstract element from DOM Treee
+                // input[type="text"]
+                // var inputs =  document.getElementsByTagName('input')  ;
+                
+                // for(var i=0;i<inputs.length;i++) {
+                //     inputs[i].value = '';
+                // }
+
+                // var inputs = document.getElementsByName("n1");
+                // for(var i=0;i<inputs.length;i++) {
+                //     inputs[i].value = '';
+                // }
+
+                var inputs = document.getElementsByClassName("c1");
+                for(var i=0;i<inputs.length;i++) {
+                    inputs[i].value = '';
+                }
+
+               // inpute button element 
+            //   var inputs =   document.querySelector('input[type="button"]');
+            // input element with class as c2
+          //  var inputs =   document.querySelector('input.c2');
+              
+           // console.log(inputs);
+
+            },false);
+        };
+    </script>
+</head>
+<body>
+    <h1>Read All HTML Input Elements</h1>
+    <div>
+        <input type="text" id="t1" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t2" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t3" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t4" name="n1" class="c1">
+    </div>
+    <br>
+    <div>
+        <input type="text" id="t5" class="c2">
+    </div>
+    <br>
+    <div>
+        <input type="button" id="b1" value="clear">
+    </div>
+    <br>
+</body>
+</html>

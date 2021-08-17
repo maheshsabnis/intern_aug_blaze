@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            // An Array of JSON Objects
+            var persons = [
+                {id:101,name:'A',age:50},
+                {id:102,name:'B', age:45}
+            ];
+
+            // to generate table headers read schema of object
+            // to read schema of the JSON object iterate over the JSON Object and read its properties
+            var headers = [];
+            // the for..in loop is a simplication of the for..loop
+            // read 0th object to read its schema or properties
+            // for..in loop will load the 0th record of persons array and read all its properties
+            for(var p in persons[0]){
+                headers.push(p);
+            }
+            console.log(headers);
+            // generate table headers dynamically
+            var headerRow = '';
+            for(var i=0;i<headers.length;i++){
+                headerRow+="<th>"+headers[i]+"</th>";
+            };
+            document.getElementById("thead").innerHTML = headerRow;
+
+            // generate table rows by reading data from persons array 
+            var tableRow='';
+            for(var j=0;j<persons.length;j++){
+                // iterate over the headers array to read value for each property of the object in persons array
+                var tr = '<tr>'
+                for(var h=0;h<headers.length;h++){
+                    // read value of each property of each record in the persons array
+                    // persons[j]: Each record in persons array
+                    // [headers[h]]: Each Property in persdons array
+                    //  persons[j][headers[h]] : value of each property of each reacord from persons array
+                    tr+='<td>'+ persons[j][headers[h]] + '</td>';
+                }
+                tableRow+=tr;
+            }
+            
+
+            document.getElementById('tbody').innerHTML = tableRow;
+        }
+    </script>
+</head>
+<body>
+    <h3>Statically Generated Table</h3>
+    <table>
+        <!--Table Header-->
+        <thead>
+            <!--Header Row-->
+            <tr>
+                <!--Headers for Columns-->
+                <th>Id</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <!--Table Body to Show Rows-->
+        <tbody>
+             <!--Row to Show data-->
+             <tr>
+                 <!--Table Cell-->
+                 <td>101</td>
+                 <td>A</td>   
+             </tr>
+             <tr>
+                <!--Table Cell-->
+                <td>102</td>
+                <td>B</td>   
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h3>Dynamically Generated Table</h3>
+    <table>
+        <thead id="thead"> 
+            
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+</body>
+</html>

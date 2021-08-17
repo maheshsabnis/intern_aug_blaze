@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+           var Characters = ["James Bond", "Ethan Hunt", "Jack Reacher", "Indiana Jones", "Jason Bourn", "MoneyPenny"];     
+        
+           generateList(Characters);
+
+           document.getElementById('lsydynamic').addEventListener('change',function(){
+             
+               document.getElementById('dvSelected').innerText = this.value + '  ' + this.options[this.selectedIndex].text;
+           },false);
+
+
+
+           generateRadioList(Characters);
+
+           // approach 1: attach an event for all Radio Buttons
+            var radios = document.getElementsByName('r');
+           if(radios.length > 0) {
+               for(var idx=0;idx<radios.length;idx++){
+                   radios[idx].addEventListener('click',function(){
+                       alert(this.value);
+                   },false);
+               }  
+           }
+
+
+           document.getElementById('lststatic').addEventListener('change',function(){
+               // change event will be raised when an <option> is selected under <select>
+                // the callback function for the event will be executed for the Current DOM element
+                // for which an event is subscribed
+                // The function will refer the element using the 'this' standard object of JavaScript the 'this' represent a scope of the current object (aka element) to access all its methods, properties, etc.
+               document.getElementById('dvSelected').innerText = this.value + '  ' + this.options[this.selectedIndex].text;
+           },false);
+
+           // generate <option> in the list dynamically 
+           function generateList(Characters){
+               
+                var opt="";
+                for(var i=0;i<Characters.length;i++){
+                    opt+='<option value="'+ i + '">' + Characters[i] + '</option>';
+                }
+                document.getElementById('lsydynamic').innerHTML = opt;
+           }
+            
+           // generate <input type="radio"> 
+           // to create a RadioButton Group, set the 'name' attribute for all radio buttons with same value for the 'name' attribute 
+            function generateRadioList(Characters){
+                var opt="";
+                for(var i=0;i<Characters.length;i++){
+                    opt+='<input type="radio" name="r" value="'+ i + '" >' + Characters[i] + '</input>';
+                }
+                document.getElementById('lstRadioList').innerHTML = opt;
+           }
+
+          
+        };
+    </script>
+</head>
+<body>
+    <h1>Generating DOM Dynamically based on Data</h1>
+    <select id="lststatic">
+        <option value="10">A</option>
+        <option value="20">B</option>
+        <option value="30">C</option>
+        <option value="40">D</option>
+    </select>
+    <br>
+    <div id="dvSelected"></div>
+    <hr>
+    <select id="lsydynamic"></select>
+    <hr>
+    <h3>The Radio Button List</h3>
+    <div id="lstRadioList"></div>
+ 
+</body>
+</html>
