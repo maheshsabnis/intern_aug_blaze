@@ -102,6 +102,39 @@
             - select, change
             - input:radio, click
             - input:check, click
+8. JavaScript Functions
+    - They are backbone of the Front-End JS Development
+    - They are used for
+        - Defining Logic
+        - Generating UI
+        - Creating Reusable Object Model
+    - Functions without input and output parameters
+    - Functions with input parameters but no output parameter
+    - Functions with input and output paramerters    
+    - Function Objects
+        - They are used to define a Class like coding with encapsulation and access-specifiers in JavaScript
+            - Reference Functions
+                - The funcation with its implementation(including nested function aka child functions) are stored in a single object like class.
+                - Syntax
+                    - var obj = function(){....}
+                        - all publically accessible members(function/data variables) will ber prefixed using 'this' 
+                - Ref. type functions extensions are possible using
+                    - prototype keyword
+                    - Each Type in JavaScript is Object
+                    - number, string, Date, {}, [], function
+                - The function has 'prototype' property to define extension   
+            - Close-Type FUnction aka JS Function thaty returns a JSON object
+                - syntax
+                    - function MyFunction(){  return { K1:V1,K2:V2,.....  }  };
+                    - Kx: is the Key which is public function or data member exposed by MyFunction object
+                    - Vx: The implementation of the function Kx or Value of the Property Kx
+            - Immediately-Invocable-Function-Expressions (IIFE)
+                - Like Self Executable High Priority JavaScript
+                - This will invoked and executed along with the window (browser) object initialization
+                - Syntax
+                    (function(){......})();         
+
+
 # Assignments 
 # Date: 13-08: Create a Simple Calculator like Windows Calculator by adding a wincalc.html page in the application 
 
@@ -127,3 +160,20 @@
     - Above the table display RadioButton List showing Categories
     - When the End-USer select a Category by clicking on the RAdio Button, the Table SHould SHow only those Products         
     - Note: Do not USe ES 6 Methods like forEach, map(), filter(), find(), replace(), match(), etc.
+# Date 18-08-2021
+1. JS Functions Assignment
+    - Create a Person JSON Object as 
+        - {PersonId:0,PersonName:'',City:'',Age:0,Gender:''}
+    - Create function object that will perform CRUD Operations on Persons Array
+        [{PersonId:0,PersonName:'',City:'',Age:0,Gender:''},{PersonId:0,PersonName:'',City:'',Age:0,Gender:''},{PersonId:0,PersonName:'',City:'',Age:0,Gender:''}]
+    - create() will accept Person object and push() it in Array
+    - readAll() method will return all persons from Array
+        - readAll(criteria) will accept criteria object
+            - The value of the criteria object will be
+                - City='Pune' OR Gender="Male"
+            - This method must return Pewrsond Data based on Criteria
+            - If criteria is empty then return all persons     
+    - readId(PersonId) will accept personId and return person based on id        
+    - update(id), updsate record based on id
+    - delete(id), update record based on id
+2. Create a UI that wil accept data for person and all persons must be shown in HTML Table which is dynamically generated based on Assignmewnt of date 17-08-2021     

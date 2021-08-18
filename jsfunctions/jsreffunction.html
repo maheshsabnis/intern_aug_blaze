@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jsreffunction.js"></script>
+    <script src="./jsrefprototype.js"></script>
+    <script>
+        window.onload  =function(){
+            var inputString  = "Join 30 millions traders and investors making better, brighter decisions in the world markets.";
+            
+            // define an instance of the StringOperations function object 
+            var strObj = new StringOperations();
+
+            var dvres = document.getElementById('dvres');
+
+            document.getElementById('btnlength').addEventListener('click', function(){
+                dvres.innerHTML = strObj.getStringLength(inputString);
+            },false);
+
+            document.getElementById('btnreverse').addEventListener('click', function(){
+                dvres.innerHTML = strObj.reverseString(inputString);
+            },false);
+
+            document.getElementById('btncase').addEventListener('click', function(){
+                dvres.innerHTML = strObj.changeCase(inputString, 'U');
+            },false);
+             // private function cannot be accesible   
+           // strObj.private();
+
+           var math = new MathObject(10,20);
+           console.log('Add with square = ' + math.addWithSquare());
+           console.log('Subscract with square = ' + math.subscractWithSquare());
+           
+           console.log('No of Spaces in ' + inputString +  ' is = ' + strObj.checkNoOfSpaces(inputString));
+            
+        };
+    </script>
+</head>
+<body>
+    <h1>JavaScript Ref. Functions</h1>
+    <input type="button" value="Get String Length" id="btnlength">
+    <br>
+    <input type="button" value="Reverse String" id="btnreverse">
+    <br>
+    <input type="button" value="Change Case" id="btncase">
+    <br>
+    <div id="dvres"></div>
+</body>
+</html>
