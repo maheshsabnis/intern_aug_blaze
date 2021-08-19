@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var obj={};
+            document.getElementById('btnset').addEventListener('click',function(){
+                obj.id = document.getElementById('txtid').value;
+                obj.name = document.getElementById('txtname').value;
+                
+                // save data in sessionStorage
+                // JSON.stringify(obj), convert the Object into JSON STring
+                sessionStorage.setItem('Record-000' + obj.id, JSON.stringify(obj));
+                loadData();
+            },false);
+
+            document.getElementById('btnget').addEventListener('click',function(){
+                // enter the id using Prompt dialog box on JavaScript
+                var recordId = prompt("Enter the Record Id"); 
+                var data = sessionStorage.getItem('Record-000'+recordId);
+                // display data in the Div
+                document.getElementById('dvdata').innerHTML = data;    
+            },false);
+
+
+            document.getElementById('btnclearip').addEventListener('click',function(){
+                 var inputs = document.getElementsByClassName('c1');
+                 for(var i=0; i< inputs.length;i++){
+                     inputs[i].value = '';
+                 }
+            },false);
+
+            document.getElementById('btnclearstorage').addEventListener('click',function(){
+                sessionStorage.clear();
+            },false);
+
+            function loadData(){
+                var data = [];
+                for(var i=0;i<sessionStorage.length;i++){
+                    data.push(sessionStorage.getItem('Record-000'+i));
+                }
+
+                alert('Data From Session Storage ' + JSON.stringify(data));
+            }
+
+
+              // Logic for Local STorage
+              document.getElementById('btnlset').addEventListener('click',function(){
+                obj.id = document.getElementById('txtlid').value;
+                obj.name = document.getElementById('txtlname').value;
+                
+                // save data in sessionStorage
+                // JSON.stringify(obj), convert the Object into JSON STring
+                localStorage.setItem('Record-000' + obj.id, JSON.stringify(obj));
+                loadData();
+            },false);
+
+            document.getElementById('btnlget').addEventListener('click',function(){
+                // enter the id using Prompt dialog box on JavaScript
+                var recordId = prompt("Enter the Record Id"); 
+                var data = localStorage.getItem('Record-000'+recordId);
+                // display data in the Div
+                document.getElementById('dvldata').innerHTML = data;    
+            },false);
+
+
+            document.getElementById('btnlclearip').addEventListener('click',function(){
+                 var inputs = document.getElementsByClassName('c2');
+                 for(var i=0; i< inputs.length;i++){
+                     inputs[i].value = '';
+                 }
+            },false);
+
+            document.getElementById('btnlclearstorage').addEventListener('click',function(){
+                localStorage.clear();
+            },false);
+
+            function loadData(){
+                var data = [];
+                for(var i=0;i<localStorage.length;i++){
+                    data.push(localStorage.getItem('Record-000'+i));
+                }
+
+                alert('Data From Local Storage ' + JSON.stringify(data));
+            }  
+
+        };
+    </script>
+</head>
+<body>
+    <h1>Using SessionStorage and Local Storage</h1>
+    <div style="height: 200px;width: 600px;border: double;">
+        <h2>Using Session Storage</h2>
+        <table style="border: double;"> 
+            <tbody>
+                <tr>
+                    <td>Id</td>
+                    <td>
+                        <input type="text" id="txtid" class="c1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" id="txtname" class="c1">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="button" value="Set Data" id="btnset">
+                    </td>
+                    <td>
+                        <input type="button" value="Get Data" id="btnget">
+                    </td>
+                    <td>
+                        <input type="button" value="Clear Inputs" id="btnclearip">
+                    </td>
+                    <td>
+                        <input type="button" value="Clear Session STorage" id="btnclearstorage">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+        <div id="dvdata"></div>
+
+    </div>
+<hr>
+<div style="height: 200px;width: 600px;border: double;">
+    <h2>Using Local Storage</h2>
+    <table style="border: double;"> 
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>
+                    <input type="text" id="txtlid" class="c2">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input type="text" id="txtlname" class="c2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="button" value="Set Data" id="btnlset">
+                </td>
+                <td>
+                    <input type="button" value="Get Data" id="btnlget">
+                </td>
+                <td>
+                    <input type="button" value="Clear Inputs" id="btnlclearip">
+                </td>
+                <td>
+                    <input type="button" value="Clear Session STorage" id="btnlclearstorage">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <div id="dvldata"></div>
+
+</div>
+</body>
+</html>

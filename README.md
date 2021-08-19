@@ -160,6 +160,25 @@
     - Above the table display RadioButton List showing Categories
     - When the End-USer select a Category by clicking on the RAdio Button, the Table SHould SHow only those Products         
     - Note: Do not USe ES 6 Methods like forEach, map(), filter(), find(), replace(), match(), etc.
+
+
+# HTML 5 Programming Features
+1. Using Storage Services
+    - localStorage
+        - used to store data in browser for a specifc Web Site (Same Origin Policy)
+        - even the browser is closed the data will be persisted in localSTorage and will be reloaded when the site is accessed again
+        - uses this storage to store data in JSON form with Key/Value Pair that is enterd by end-user
+    - sessionStorage
+        - used to store data in browser for a specifc Web Site (Same Origin Policy)
+        - If the browser is closed the data will be removed  
+         - uses this storage to store data in JSON form with Key/Value Pair that is enterd by end-user
+    - In the storage, save the data like
+        - Data enter by used and it is processed to perform local client-side calculations
+        - The data that may be required across multiple pages for the same site
+    - IMP: Please do not store Identity Information (e.g. Password, Secret Keys) in STorage     
+    - localStorage and sessionStorage
+        - set(), get(), clear()
+
 # Date 18-08-2021
 1. JS Functions Assignment
     - Create a Person JSON Object as 
