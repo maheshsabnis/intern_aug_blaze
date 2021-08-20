@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // global variables
+        var mydb; // used to store database
+        var tbl; // for table 
+        function createDatabase(){
+            // SInce alloperations on indexedDB are resorce intensive, they are 
+            // handled asynchronously to present the Blocking of script execution
+            // 1. open the database if exist or create new
+            mydb = window.indexedDB.open("InfoDb", 1);  
+
+            // 2. if the database is successfuly opened and/or created then 
+            // create a table aka ObjctStore in it
+
+            // the 'e' parameter that represents the IDBOpenRequest
+            // Makse the IndexedDB Accessible for all oeprations
+            mydb.onupgradeneeded  = function(e){
+                var dbReference = e.target.result; // get the indexedDB References
+                // create a ObjectStore
+                // the "Info" table will be created which will have 'id' as
+                // the Primary Key
+                tbl = dbReference.createObjectStore("Info", {keyPath: "id"});
+                // define columns
+                var columnConstraints = {unique:false};
+                // create columns in ObjectSTore
+                // p1: then actual column name
+                // p2: developer friendly name
+                // p3: column constraints
+                tbl.createIndex("RowId1","RowId",columnConstraints);
+                tbl.createIndex("Name1","Name",columnConstraints);
+                tbl.createIndex("City1","City",columnConstraints);
+
+                document.getElementById('dvstatus').innerHTML = "Database is created and Objectstore is added in it";
+            };
+
+            // 3. if operations of create store on database are successful then
+            // subscribe to the success event
+            mydb.onsuccess =function(e){
+                document.getElementById('dvstatus').innerHTML += "Database initial Operations are done";
+            }
+
+            // 4. if error occured the subscribe to the on error event
+            mydb.onerror = function(e){
+                document.getElementById('dvstatus').innerHTML += "Database IS FAILED TO OPEN";
+            }
+
+        }
+        function load(){
+            createDatabase();
+            document.getElementById('btnsave').addEventListener('click', saveData, false);;
+            document.getElementById('btndeletedb').addEventListener('click', deleteDatabase, false);
+            document.getElementById('btnloaddata').addEventListener('click', loaddata,false);
+            document.getElementById('btnclear').addEventListener('click', clear,false);
+            document.getElementById('btngetall').addEventListener('click', bygetall,false);
+            document.getElementById('btngetsingle').addEventListener('click',getsingle,false);
+        }
+
+        function clear(){
+            var inputs = document.getElementsByClassName('c');
+            for(var i=0;i<inputs.length;i++){
+                inputs[i].value = '';
+            } 
+        }
+
+        function saveData(){
+            mydb = window.indexedDB.open("InfoDb");
+            if(mydb){
+                mydb.onsuccess=function(e){
+                    // retrive the transaction
+                    var tx = e.target.result.transaction("Info", "readwrite");
+                    // point to the ObjectSTore and start the transaction
+                    tbl = tx.objectStore("Info");    
+                    // read data from UI and stored it in Info store
+                    var data = {
+                        "id": parseInt(document.getElementById("tid").value),
+                        "RowId": parseInt(document.getElementById("tid").value),
+                        "Name": document.getElementById("tname").value,
+                        "City": document.getElementById("tcity").value,
+                    };
+
+                    // pass the data to add()
+                    var operation = tbl.add(data); 
+                    // tbl.put(data) to update
+                    // tbl.delete(data) to delete
+
+                    // if operation is successfull then subscribe to onsucess event
+                    operation.onsuccess = function(e){
+                        document.getElementById('dvstatus').innerHTML = "Record is added successfully";
+                    }
+                    // if failed then to onerror event
+                    operation.onerror = function(e){
+                        document.getElementById('dvstatus').innerHTML = "Save Operation is failed";
+                    }
+
+                }
+            }else {
+                document.getElementById('dvstatus').innerHTML = "Unable to Open database";
+            }
+        }
+        function loaddata(){
+            var records = [];
+            var mydb = window.indexedDB.open("InfoDb");
+            if(mydb){
+                mydb.onsuccess=function(e){
+                    // retrive the transaction
+                    var tx = e.target.result.transaction("Info", "readwrite");
+                    // point to the ObjectSTore and start the transaction
+                    tbl = tx.objectStore("Info");  
+                    
+                    
+                    // start reading all data
+                    // ALternative Method is getAll() to read all data
+                    tbl.openCursor().onsuccess = function(e){
+                        // point to the first record in the resulant
+                        var reader = e.target.result;
+                        // if the first record exist in the cursor
+                        // then start iterating on it
+                        if(reader){
+                             records.push(reader.value);
+                             reader.continue(); // move to next record   
+                        } else {
+                            document.getElementById('dvstatus').innerHTML = "Data Fetched";
+                            document.getElementById('dvstatus').innerHTML += JSON.stringify(records);
+                        }
+                    };
+                }
+            }else {
+                document.getElementById('dvstatus').innerHTML = "Unable to Open database";
+            }
+        }
+
+        function bygetall(){
+            var records = [];
+            var mydb = window.indexedDB.open("InfoDb");
+            if(mydb){
+                mydb.onsuccess=function(e){
+                    // retrive the transaction
+                    var tx = e.target.result.transaction("Info", "readwrite");
+                    // point to the ObjectSTore and start the transaction
+                    tbl = tx.objectStore("Info");  
+                    
+                    
+                    // start reading all data
+                    // ALternative Method is getAll() to read all data
+                    tbl.getAll().onsuccess = function(r){
+                        document.getElementById('dvstatus').innerHTML = "Data Fetched";
+                            document.getElementById('dvstatus').innerHTML += JSON.stringify(r.target.result);
+                    }
+                }
+            }else {
+                document.getElementById('dvstatus').innerHTML = "Unable to Open database";
+            }
+        }
+        function getsingle(){
+            
+            var mydb = window.indexedDB.open("InfoDb");
+            if(mydb){
+                mydb.onsuccess=function(e){
+                    // retrive the transaction
+                    var tx = e.target.result.transaction("Info", "readwrite");
+                    // point to the ObjectSTore and start the transaction
+                    tbl = tx.objectStore("Info");  
+                    
+                    
+                    // start reading all data
+                    // ALternative Method is getAll() to read all data
+                    tbl.get(1).onsuccess = function(e){
+                        document.getElementById('dvstatus').innerHTML = e.result;
+                    }
+                }
+            }else {
+                document.getElementById('dvstatus').innerHTML = "Unable to Open database";
+            }
+        }
+
+        function deleteDatabase(){
+            // 1. Initiate request to delete database3
+            var dbDeleteRequest = window.indexedDB.deleteDatabase("InfoDb");
+            // subscribe to the onSucces to check if the database deletion has tablen place
+            dbDeleteRequest.onsuccess = function(){
+                document.getElementById('dvstatus').innerHTML = "Database is deleted succesfully";
+            }
+        }
+
+        window.onload = load;
+
+    </script>
+</head>
+<body>
+    <h1>USing HTML 5 IndexedDB </h1>
+    <div>
+        ID: <input type="text" id="tid" class="c">
+    </div>
+    <br>
+    <div>
+        Name: <input type="text" id="tname" class="c">
+    </div>
+    <br>
+    <div>
+        City: <input type="text" id="tcity" class="c">
+    </div>
+    <br>
+    <div>
+        <input type="button" value="Save" id="btnsave">
+        <input type="button" value="Load Data" id="btnloaddata">
+        <input type="button" value="Load Data by Get All" id="btngetall">
+        <input type="button" value="Clear" id="btnclear">
+        <input type="button" value="Delete Database" id="btndeletedb">
+        <input type="button" value="Get Stngle Record" id="btngetsingle">
+    </div>
+    <hr>
+    <div id="dvstatus"></div>
+</body>
+</html>
