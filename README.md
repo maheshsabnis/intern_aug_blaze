@@ -133,6 +133,57 @@
                 - This will invoked and executed along with the window (browser) object initialization
                 - Syntax
                     (function(){......})();         
+- Browser's UI/UX Compatibiliy
+    - Dynamically Updating the UI Renderting
+        - Drag-Drop Features for DOM
+            - The 'draggable' attribute, applied on element to be dragged
+                - draggable=true
+                    - DOM Tree known that the element will be flexible re-aranged based on Events
+            - Events
+                - dragstart
+                    - ON draggable=true with 'mouseenter+mouseleftbuttondown' events and combined to show eloement's drag
+                    
+                - dragover
+                    - dragstart+pin the element with 'mousemove' event. The dragged element will be pinned with MouseMove event 
+                - drop
+                    - drop the element at target  
+            - dragstart and drop events have following parameter
+                - The 'event' parameter, proviesd the 'dataTransfer' object
+                        - The Object that represents the Metadata of the element in Drag-Drop operation
+                            - getData()
+                                - read element's data from the dataTransmer object 
+                            - setData() 
+                                - Read any property of dgrgged element and stored it in dataTransfer object            
+    - HTML 5 Element System
+        - New Forms Elements
+            - DataList
+                - an implmentation of select tag 
+                - the 'list' is a new attribute to input element to show data from datalist tag 
+        - New Input Elements
+            - number, month,date, week, email, tel, range
+        - New UX Controls    
+            - Input elements + Inline JS + Inline CSS
+                - Date, Month, Week, NUmber, range
+            Property System for Data Validation
+                - placeHolder, min, max, minlength, maxlength, pattern, required
+                - the 'name' attribute is mandatory for all editable elements and they must Be inside the form tag     
+            - Collection Display Modification
+                - Unordered List (Old HTML) Ordered List (Old HTML)
+                - HTML 5 Description List
+    - Managing the Interactivity using Wow-Wow Effects          
+        - Cascading StyleSheets aka CSS 3      
+            - The Mechanism for following
+                - Applying look and feel on HTML Elements (Default Feature) 
+                - Query HTML Elements based on
+                    - id, class, tag, type
+                    - type+tag, type+class,  (CSS 3)
+                    - position aka index (CSS 3)
+                    - elements occuring next (CSS 3)
+                    - elements occuring previous (CSS 3)
+                    - child of (CSS 3)
+                    - parent of (CSS 3)
+        - Official CSS 3 Framework known as Bootstrap        
+            - FlexGrid, Material, Mechanic         
 
 
 # Assignments 
@@ -245,3 +296,24 @@
     - To Update the record click on 'Update' button of the table row and load selected Product from the table row in Textbox and DropDown list. Update the data and click on Save button, this must be updated in ObjectSTore and table must be refreshed with updated values (Monday)
     - To Delete record, click on Delete button of the Table row (Monday)
     - Add a serach textbox above the table to search record based on CategoryNAme, Manufacturer, ProductName, DFescription (MOnday)
+
+# Date 23-08-2021
+1. Create  personInfo entry form using following fields
+    - FirstName, MiddleName, LastName, Age, Gender, Email, Address, Phone Number, MObile Number
+    - Validate the Data ENtry based on Following validations
+        - FirstName, MiddleName, LastName
+            - MUST be Required and Must be Strings, use pattern attribute
+        - Age must be number in between 18 to 99
+        - EMail must be Email, use Pattern for Email, (Google it for Email Pattern)
+        - Phone Number must be in INdian Standard STD Format
+            - +(91)-(STD)-(PnoneNUmber)
+                - STD, can be at most 5 digits
+                - OPhonme Number must be maz 12 digits
+        - MObile NUmber must be in Indian STandard
+            - +91-(MOBILE Number) 
+                - MUST be 10 Digits and must be Numeric
+        - Gender must be Male/Female/Transgender
+            - Must be selected from Radio Button List
+            - Any one of the Gendfer must be selected
+    - Submit button must be enabled when all entriled are entered 
+    - If any entry is invalid, then show error messages next to each Text Element and text element must be red bordered for invalid entries else green for all valid entries                          

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Inline style to HTML file, this is limitted for this file only-->
+   <style type="text/css">
+   
+         /* Tag Selector Style  */
+        h1{
+            font-family: cursive;
+        }
+        input {
+            height: 60px;
+            width: 300px;
+            color: red;
+            background-color: yellow;
+            font-size: 40px;
+            font-family: cursive;
+            font-weight: bolder;
+        }
+        /*CSS 3 Styling based on tage+type selector*/
+        input[type="button"] {
+            background-color: black;
+            color: aquamarine;
+            font-family: 'Times New Roman', Times, serif;    
+        }
+        /*Style will be applied only on the elements having class attribute value as c1*/
+        .c1 {
+           background-color: brown;
+           color: yellow; 
+           width: 600px;
+           font-size: 20px;
+            font-family: monospace;
+            font-weight:normal;
+        }
+   </style> 
+    <script>
+        window.onload = function(){
+            // apply the style based on event
+            var t1 = document.getElementById('t1');
+            t1.addEventListener('keyup',function(){
+                if(this.value.length > 0){
+                    this.style.fontSize = "70px";
+                    this.style.color = "black";
+                    this.style.fontWeight = "Bold";
+                    this.style.backgroundColor="red";
+                }else {
+                    this.style.fontSize = "30px";
+                    this.style.color = "red";
+                    this.style.fontWeight = "Bold";
+                    this.style.backgroundColor="yellow";
+                    this.style.borderWidth= "5px";
+                    this.style.borderColor="red";
+                }
+            },false);
+        }
+    </script>
+</head>
+<body>
+    <h1>The CSS 3 Simple Selectors</h1>
+    <input type="text" id="t1">
+    <br>
+    <input type="text">
+    <br>
+    <input type="text">
+    <br>
+    <!--Inline Style (if to be applied on more elements, thejn it is repeated code)-->
+    <input type="button" value="Click Me" style="background-color: cyan;color: red;">
+    <br>
+    <input type="button" value="Click Me Again">
+    <br>
+    <input  value="I am having class" class="c1">
+</body>
+</html>

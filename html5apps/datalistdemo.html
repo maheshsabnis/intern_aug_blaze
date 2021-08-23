@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var st = document.getElementById('states1');
+
+            var states = [
+                {id:'MH',name:"Maharashtra"},
+                {id:'GJ',name:"Gujarat"},
+                {id:'MP',name:"Madhya Preadesh"},
+                {id:'UP',name:"Uppar Pradesh"}
+            ];
+
+            var options;
+            for(var i=0;i<states.length;i++){
+                options+='<option value="' + states[i].id + '">' + states[i].name+ '</option>';
+            }
+
+            st.innerHTML = options; 
+            document.getElementById('lststate1').list = st;     
+        }
+    </script>
+</head>
+<body>
+    <h1>The HTML 5 Data List</h1>
+    select State :
+      <input type="text" id="lststate" list="states"> 
+      <datalist id="states">
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Gujarat">Gujarat</option>
+      </datalist>
+      <hr>
+      <input type="text" id="lststate1" list="states1"> 
+      <datalist id="states1">
+             
+      </datalist>
+</body>
+</html>

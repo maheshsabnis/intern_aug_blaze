@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>HTML 5 INput Eleemnts with Validators</h1>
+    <div>
+        <form name="frmdata">
+            <div>
+                First Name: <input type="text" id="txtfname" name="fname"
+                 required placeholder="Enter Fname">
+            </div>
+            <div>
+                Middle Name: <input type="text" id="txtmname" name="mname"
+                 required placeholder="Enter Mname">
+            </div>
+            <div>
+                Last Name: <input type="text" id="txtlname" name="lname"
+                 required placeholder="Enter Lname">
+            </div>
+            <div>
+               Age: <input type="number" id="txtage" name="age" min="18" max="99">
+            </div>
+            <div>
+               Income: <input type="range" id="txtincome" name="income" min="18000" max="999999">
+            </div>
+            <div>
+                Date Of Birth: <input type="date" id="txtmname" name="bdate" required>
+            </div>
+            <div>
+                Vote Registration Month: <input type="month" id="txtregmonth" name="regmonth" required>
+            </div>
+            <div>
+                Premium Week: <input type="week" id="txtpremium" name="premium" required>
+            </div>
+            <div>
+                <input type="submit" id="btnsubmit" value="Save">
+            </div>
+        </form>
+        <h3>Collection Data Display Changes</h3>
+        <h4>Un-Ordered List</h4>
+        <ul>
+            <li>Cofee</li>
+            <li>Tea</li>
+            <li>Milk</li>
+        </ul>
+        <br>
+        <h4>Description List</h4>
+        <!--dl is description list and dt is a term in description list amd dd is description in list-->
+        <dl>
+            <dt>Laptop</dt> 
+            <dd>- Gaming Laptop with core i11 Processor</dd>
+            <dt>Mobile</dt>
+            <dd>- Smart Phone from 1+ with 8 GB RAM and 128 GB STorage</dd>    
+        </dl>
+        <br>
+        Color Selector
+            <input type="color" value="txtcolor">
+    </div>
+</body>
+</html>
