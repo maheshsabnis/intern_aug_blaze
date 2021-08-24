@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./uigeneratot.js"></script>
+    <script>
+        window.onload = function(){
+          
+            var uiObj = new UIGenerator();
+            var dvCatSelect = document.getElementById('dvCatSelect');
+            var categories = ["Electronics", "Electrical", "Fashion", "Food"];
+            dvCatSelect.innerHTML = uiObj.generateDropDown(categories);
+            var dvManSelect =  document.getElementById('dvManSelect');
+            var manufacturers = ["IBM","HP", "TATA", "Bajaj", "Parle"];
+            dvManSelect.innerHTML = uiObj.generateDropDown(manufacturers);
+
+            var catsObjects = [
+                {CatId:'Cat-001', CatName:'Electronics'},
+                {CatId:'Cat-002', CatName:'Electrical'},
+                {CatId:'Cat-003', CatName:'Food'},
+                {CatId:'Cat-004', CatName:'Fashion'}
+            ];
+
+            var dvComplexCat = document.getElementById('dvComplexCat');
+            dvComplexCat.innerHTML = uiObj.generateDropDown(catsObjects);
+
+        };
+    </script>
+</head>
+<body>
+    <h1>Use JS Function as a Presenter to generate UI</h1>
+    <div id="dvCatSelect"></div>
+    <hr>
+    <div id="dvManSelect"></div>
+    <hr>
+    <div id="dvComplexCat"></div>
+</body>
+</html>
