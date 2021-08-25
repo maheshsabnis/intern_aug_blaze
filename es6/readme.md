@@ -215,5 +215,268 @@ console.log(res);
             - filter()
             - map()
             - reduce()
-    - Map and WeakMap
+                - The method that is used for in-Memory, self iteration for perfoming various operations. E.g. Frequency of elements, Grouping of elements, sum of elements, etc.
+``` javascript
+let names = [
+  "Mahesh",
+  "Ajay",
+  "Akash",
+  "Raju",
+  "Amit",
+  "Mahesh",
+  "Akash",
+  "Pushkar",
+];
+// Using the for..of iterator to read or iterate over the array
+for (let n of names) {
+  console.log(`Name = ${n}`);
+}
+// Using forEach()
+console.log("USing forEach");
+names.forEach((n, i) => {
+  console.log(`Name at index ${i} is  = ${n}`);
+});
+// using map() function
+console.log("USing Map");
+names.map((n, i) => {
+  console.log(`Name at index ${i} is  = ${n}`);
+});
+
+// using filter method
+console.log("Using filter()");
+// return a new array based on the expression condition
+let res1 = names.filter((n, i) => {
+  return n.length > 4;
+});
+console.log(res1);
+
+```
+    - Additional Demos
+``` javascript
+let names = ['Mahesh', 'Ajay', 'Akash', 'Raju', 'Amit', 'Mahesh', 'Akash', 'Pushkar'];
+// check if the record is present in array
+// using indexOf(), if the record is not present in array then it will return -1. If the record found it will stope for the first occurance of the record in array
+console.log(names.indexOf('Mahesh')); // 0
+console.log(names.indexOf('Raju')); // 3
+console.log(names.indexOf('Tejas')); // -1
+
+// lastIndexOf(), start reading the array and will proviode the last index of the record
+console.log(names.lastIndexOf('Mahesh')); // 5
+console.log(names.lastIndexOf('Akash')); // 6
+console.log(names.lastIndexOf('Tejas')); // -1
+
+// Append a Record at the end
+names.push('Atul');
+console.log(names);
+// remove the last element from the array
+console.log(names.pop());
+console.log(names);
+// remove record from the first (0th) position of the array
+console.log(names.shift());
+console.log(names);
+// add record at the first (0th) position of the array
+names.unshift('Ramesh');
+console.log(names);
+// Sort Array ES 5
+console.log(names.sort()); // the default is alphabetical order
+// Sort array by length of each record
+
+// a and b are first 2 records of array and will be iterated towards end of array
+let res = names.sort((a,b)=>{
+    return  a.length - b.length;   // compare based on length by ascending order, if result is +ve b is lesser than a in length, if -ve a is less in length than b, if result is 0 then same length  
+});
+console.log('Sort by Length in Ascending order');
+console.log(res);
+res = names.sort((a,b)=>{
+    return  b.length - a.length;   // compare based on length by descending order
+});
+console.log('Sort by Length in Descending order');
+console.log(res);
+
+
+
+let names = [
+  "Mahesh",
+  "Ajay",
+  "Akash",
+  "Raju",
+  "Amit",
+  "Mahesh",
+  "Akash",
+  "Pushkar",
+  "Mahesh", 
+  "Vikram",
+  "Suprotim",
+  "Ajay",
+  "Mahesh", "Akash", "Vaibhav", "Ajay"
+];
+
+let morenames = ["Vikram", "Suprotim", "Subodh"];
+// names will be appended with morenames
+let allnames = names.concat(morenames);
+
+// list all names having length more that 5
+let res1 = allnames.filter((n, i) => {
+  return n.length > 5;
+});
+console.log(`Records hvinf length more than 5 ${res1}`);
+// findout frequency of 'Mahesh' in array
+let res2 = allnames.filter((n,i)=> {
+    return n == 'Mahesh';    
+}); 
+console.log(`Count of Mahesh in array = ${res2.length}`);
+
+let names = ['Mahesh', 'Ajay', 'Akash', 'Raju', 'Amit', 'Mahesh', 'Akash', 'Pushkar'];
+
+let morenames = ["Vikram", "Suprotim", "Subodh"];
+// names will be appended with morenames
+let allnames = names.concat(morenames);
+console.log(allnames);
+// Slicing of array. Break array  based on the STart Position and the count
+// starts from the 0th index the 5 values from array will be put into output array
+let ar1 = allnames.slice(0,5);
+console.log(ar1);
+console.log(allnames);
+// The Removing an element from array
+// from the 0th position, remove 2 records aka deletecount, numbner of records tyo be deleted from array
+allnames.splice(0,2);
+console.log('AFTER DELETE FIRST 2 RECORDS`');
+console.log(allnames);
+allnames = names.concat(morenames);
+console.log(allnames);
+// deleting a specific record from the array
+// 1 Retrieve the index of the record
+let index = allnames.indexOf('Pushkar');
+console.log(index);
+// 2 Splice the index with deletecount as 1
+allnames.splice(index,1);
+console.log('Records after deleting Pushkar`');
+console.log(allnames);
+
+```
+    - Array Reduce function
+        - Array.reduce(Function Predicate)
+            - Function Predicate: the implmenetation for executing a logic on the array
+``` javascript
+// a simple reducer dmo, for calculationg sum of data from array
+let numbers = [10, 20, 30, 40, 50, 60, 70, 80, 90];
+// using reduce() to calculate sum of all records
+const reducerLogic = (finalValue, currentValue) => finalValue + currentValue;
+// using the logic for finding the sum of data
+console.log(`SUm of Elements from Array = 
+ ${numbers.reduce(reducerLogic)}`);
+// reduce((finalValue, currentValue)=> finalValue+currentValue);
+// currenuValue is the each record in iteration from array starts from 0th index,
+// this will value will be added into finalValue for each reord in iteration
+let names = [
+  "Mahesh",
+  "Ajay",
+  "Akash",
+  "Raju",
+  "Amit",
+  "Mahesh",
+  "Akash",
+  "Pushkar",
+  "Mahesh",
+  "Vikram",
+  "Suprotim",
+  "Ajay",
+  "Mahesh",
+  "Akash",
+  "Vaibhav",
+  "Ajay",
+  "Vikram",
+  "Suprotim",
+  "Subodh",
+];
+
+// finding out the frequency of each record in array
+// srcNames, is the previous value that will be checked using the
+// currentName. The srcNames will be the source array reference
+// on which the redcuce() function is invoked
+let frequency = names.reduce((srcNames, currentName) => {
+  // the 'in' operator in if condition will check an existing of
+  // LHS value of 'in' operator in RHS collection value
+  if (currentName in srcNames) {
+    srcNames[currentName]++; // increament the count of frequency in srcName
+  } else {
+    srcNames[currentName] = 1; // frequency will be 1
+  }
+  // return the modified state of the sourve array i.e. names
+  return srcNames;
+}, {}); // the initial state of the Source array i.e. 'names' that will be used by reduce() function for modification
+console.log(`Frequence = ${JSON.stringify(frequency)}`);
+
+// Using Reduecr on COmplex Array
+let emps = [
+    {eno:1,ename:'A', dname:'d1'},
+    {eno:2,ename:'B', dname:'d2'},
+    {eno:3,ename:'C', dname:'d3'},
+    {eno:4,ename:'D', dname:'d1'},
+    {eno:5,ename:'E', dname:'d2'},
+    {eno:6,ename:'F', dname:'d3'},
+    {eno:7,ename:'G', dname:'d1'},
+    {eno:8,ename:'H', dname:'d2'},
+    {eno:9,ename:'I', dname:'d3'}
+];
+// display all departments by group
+// define a function
+// Parameter 1: The Source Array on which the query will be executed
+// Parameter 2: The value of the property (property name) for creating group
+function printGroup(sourceArray, pname){
+    // emp, the current record to check
+    // obj, is the iteration value on the array aka, each record from the source array 
+    return sourceArray.reduce((emp,obj)=>{
+        // read the key or property name for grouping
+        let key = obj[pname];
+        console.log(`The Group key = ${key}`);
+        // if no record the the output group will be empty
+        if(!emp[key]){
+            emp[key] = []; // empty arry aka no grouping
+        }
+        
+        console.log(`The 'obj' in Iteration ${JSON.stringify(obj)}`);
+        // create a group 
+        emp[key].push(obj); // pushed the searched object from the sourceArray in group
+        console.log(`The 'emp' state based on match of 'obj' is = ${JSON.stringify(emp[key])}`);
+        return emp; // a new object with modified state that the original array showing group of records
+    },{});
+};
+console.log();
+// get the group of employeed based on the 'dname' property
+let output = printGroup(emps, 'dname');
+console.log(`Group by recoreds = ${JSON.stringify(output)}`);
+
+```
     - Set and WeakSet
+        - Set is the collection taht can store only unique value
+        - THis will ingore the repeated value to be added in the collection 
+        - The 'Set()' is predefined object of ES 6
+            - methods
+                - add(), forEach(), keys(), to read all keys, values(), to read all values from Set
+            - property
+                -size, the size of the Set    
+        - The WeakSet() can stored only objects' references        
+    - Map and WeakMap
+        - STored data in Key/Value pair
+        - Key is UNique and Value can be number, string, object
+        - WeakMap() can have Keys and Values as Objects only
+
+# Hands-on-Labs on ES 6
+
+# Date : 25-Aug-2021
+1. Create a Map by accepting data from UI that is going store the Patient Information like
+    - PatientId: Used as Key and will be Auto Generated
+    - PatientName, must be string and Mandatory
+    - DoctorName, Must be String and Mandatory,
+    - Age, Numeric Mandatory,
+    - Gender, String, Mandatory
+    - Dieses, String, MAndatory
+        - General, Cancer, Heart, Sugar, Pnumonia, etc. 
+    - Ward, (General, Special) 
+    - RoomNo
+
+2. CReate UI That will display, Patients Group by Doctors
+3. CReate UI That will display, Patients Group by Dieses
+4. CReate UI That will display, Patients Group by Ward    
+   
