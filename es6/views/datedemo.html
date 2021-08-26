@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            console.log(new Date());
+            console.log(Date.now());
+            // using the date
+            // constructor parameter, Parameter 2 for MOnth starts from 0 (Jan)
+            var dt = new Date(2021,7,26);
+            console.log(dt);
+            // ES 5 Date Parser Changes to format the date
+            // MM/DD/YYYY
+            // MM value is the actual MOnth number
+            dt = new Date("08/26/2021");
+            console.log(dt);
+
+            //dt = new Date("26/08/2021"); // not acceptacble because the default en-US (MM/DD/YYYY)
+            //console.log(dt);
+
+            console.log(dt.getFullYear());
+            console.log(dt.getMonth());
+            console.log(dt.getDate());
+            dt  =new Date (2021,7,26,10,58,20);
+            console.log(dt.getHours());
+            console.log(dt.getMinutes());
+            console.log(dt.getSeconds());
+            // set methods
+            dt.setFullYear(2021);
+            dt.setMonth(9);
+            dt.setDate(10);
+            console.log(dt.getFullYear());
+            console.log(dt.getMonth());
+            console.log(dt.getDate());
+
+            // find out the difference between 2 dates
+        
+            var d1 = new Date('8/20/2021'); // HH:MM:SS, 00:00:00
+            var d2 = new Date('8/26/2021'); // HH:MM:SS, 00:00:00
+            
+            // use the Abs() method fo the Math object for difference in time
+            var diffTime = Math.abs(d2-d1);
+            console.log(diffTime); // differnce in Milliseconds 86400000
+            // get days difference , 1000*60*60*24, is tyhe 24 Hours Calculation
+            var dayDiff = Math.ceil(diffTime/(1000*60*60*24));
+            console.log(dayDiff); // 1 day
+
+
+
+
+
+
+
+        };
+    </script>
+</head>
+<body>
+    <h1>JavaSCript Date Object</h1>
+
+</body>
+</html>

@@ -461,7 +461,52 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
         - STored data in Key/Value pair
         - Key is UNique and Value can be number, string, object
         - WeakMap() can have Keys and Values as Objects only
+    - If the Data Schema under the manipulation is complex and takes time to proces (e.g. Search, Filter, Sort, etc.), then use Set or Map collection to store the data
 
+- ES 6 String Methods
+    - search()
+        - search an existance of specified string in a given string and returns its index
+            - an alternative to indexOf() and lastIndexOf()
+            - indexOf(string-to-search, Start-Position-from-which-the-search-starts)
+            - serach(string-to-search)
+                - can accept a regular expresion to find a match for powerful search    
+                - starts reading a string from 0th postion with character match in search string, so if match not found the whole word is skipped
+                    - STring: JavaScript is Powerfull language for Full Stack development, so laugh and use
+                    - String.search('language') , String.search('laugh')
+                        - FIrst 3 words will be skipped because first character does not match 
+    - match()
+        - Purely written for Regular-Expression Based Search      
+
+- Date Object and its methods          
+    - Date()
+        - getFullYear(), getMonth(), getDate(), getHoures(), getMinuts(), getSeconds(), getDay()
+        - setFullYear(), setMonth(), setDate(), setHours(), setMinutes(), setSeconds(), setDay()      
+-  Using Object Oriented Programming
+    - 'class' is the keyword
+        - The class name must starts from Uppercase character 
+    - 'constructor()' is a standard method
+    - NO method overloading by default
+    - public members are exposed using 'this.' prefix
+    - private members needs additional packages and configuration in .babelrc file
+        - @babel/plugin-proposal-class-properties
+            - get/set properties
+        - @babel/plugin-proposal-private-methods
+            - for private members
+        - npm install --save @babel/plugin-proposal-class-properties @babel/plugin-proposal-private-methods    
+``` javascript
+{
+    "presets": [
+        "@babel/preset-env"
+    ],
+    "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-private-methods"
+    ]
+}
+```
+    - NO Abstract CLass by Default
+    - SUpport for STatic Methods available
+    - INheritence is possible using 'extends' keyword 
 # Hands-on-Labs on ES 6
 
 # Date : 25-Aug-2021
@@ -480,3 +525,16 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
 3. CReate UI That will display, Patients Group by Dieses
 4. CReate UI That will display, Patients Group by Ward    
    
+# Date : 26-Auh-2021
+1. Create a HTML Page with following input Elements
+    - input:date and input:time for FROM Date
+    - input:date and input:time for To Date
+    - input:button
+    - When From Date and From Time is Selected reads its value as From DateTime and When To Date and To Time is selected , read its value as ToTime, when the button is clicked, the exact Date Difference must be shown on page  
+        - Difference is 1 Year, 2 Months,10 Days, 5 Hours, 30 minutes, 50 seconds
+   - If Date differnce is more than 365 add an year for Leap Year difference of days is 366, add 1 to year
+   - If MOnth Difference is more that 12 then add 1 to Year
+   - If Day Difference is more than 28,29,30,31, then add 1 to Month
+   - If Hours difference is more than 24, then add 1 to Day
+   - If Min diff is more than 60 then add 1 to Hours
+   - If Seconds diff is more than 60 the add 1 to minuts     

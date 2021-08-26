@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./../build/simpleclass.build.js"></script>
+    <script src="./../build/classwithpublicmembers.build.js"></script>
+    <script src="./../build/privatemembers.build.js"></script>
+    <script>
+        var o2 = new SimpleClass();
+        console.log('Add with Square ' + o2.add(3,3));
+        var o1 = new PublicMembers('Mahesh', 'Rameshrao', 'Sabnis');
+        o1.firstName = 'Tejas'; // public propety from the class
+        console.log(o1.firstName);
+        console.log(`${o1.getFullName()}`);
+
+
+
+        var o3 = new PrivateMembers('Mahesh', 'Rameshrao', 'Sabnis');
+        // the script is adding a new property in the PrivateMembers IIFE type and making it accessible  
+        // o3.firstName1 = 'Tejas';  
+        // console.log(o3.firstName); // undefined becuase there is no such property in ProvateMembers
+        console.log(`${o3.getFullName()}`);
+        var o4 = new PrivateMembers('', 'Rameshrao', 'Sabnis');
+        console.log(`${o4.getFullName()}`);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

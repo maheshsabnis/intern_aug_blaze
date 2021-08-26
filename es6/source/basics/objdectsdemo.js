@@ -11,7 +11,7 @@ console.log(`obj1 = ${obj1.name}`);
 let o1 = {name:'AA'};
 console.log(`o1.name = ${o1.name}`);
 let arr = [o1]; // storing o1 in array arr, the arr will copy values of o1 in it
-o1 = null; // garbase collect (Broake link between the Reference and its values)
+o1 = null; // garbage collect (Broake link between the Reference and its values)
 console.log(`Print Array ${JSON.stringify(arr)}`); // although o1 is killed its values will be maintained in array
  // console.log(o1.name); //will product error because the 'name' is not discoverable to the o1
 // Since o1 is present in global scope on browser or JS DOM, the new schema can still be associted with it
