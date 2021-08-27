@@ -505,8 +505,31 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
 }
 ```
     - NO Abstract CLass by Default
+        - To create an abstract class, prevent the 'new' instance creation of the class
+            - use 'new' object and its 'target' proprty to check if the 'new.target' is a current class, if yes then throw error
     - SUpport for STatic Methods available
     - INheritence is possible using 'extends' keyword 
+        - Has the access of all public members of the base class
+        - If the Derived class has Parameterized Constructor, the derived class must link with base class by making 'super()' class to BaseClass constructor 
+    - Addon Featrures of ES 6
+        - REading all Public Properties of Class or JSON object using Object.keys();
+        - Spread Operator
+            - Mechanism to create an Immutable object by adding new data in it
+            - Prevent the requirements of redeclaring the object again and again by adding new values in it
+             -  E.G
+                - let obj1 = {a:10};
+                - let obj2  = Object.asssign({}, obj1); // obj2.a will be 10
+                - obj2.x = 90; // obj2.a and obj2.x
+            - Using Object Spread
+                - syntax
+                    - let obj = {a:100}:
+                    - obj = {...obj, b:50};  // obj will be an immutable object with new property in it
+                    - ... will inform the JavaScript that modify the same object by adding new properties in it using 'ownProperties()' and 'arguments' array , default object of JavaScript
+                - the SPread operator of ES 6 is used by ES 6 to define a method with variable numbers of parameters
+                    - THis is known as rest parameters
+    - ES 6 Proxy
+        - It is an object that will be used for hinding the actual object withs its funcationality or may extend the exisitng funcationaly for specific client aka consumer                         
+
 # Hands-on-Labs on ES 6
 
 # Date : 25-Aug-2021
@@ -538,3 +561,13 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
    - If Hours difference is more than 24, then add 1 to Day
    - If Min diff is more than 60 then add 1 to Hours
    - If Seconds diff is more than 60 the add 1 to minuts     
+
+
+# Date : 27-08-2021
+1. CReate a Proxy that will add validation Rules on PErson Object Like (Immediately Today)
+    - For Consumer1(), the Email must be supporting 'co.in'
+    - For Consumer2(), only Email of '.com' will be accepted
+    - For Consumer3(), the Email and Occupation will not be accessible
+    - For Consumer4(), the _Secret can be readonly 
+2. Complete the UI and Logic part for ProductLogic()
+    - Note USe Array methods as per the requirements

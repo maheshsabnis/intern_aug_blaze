@@ -8,6 +8,7 @@
     <script src="./../build/simpleclass.build.js"></script>
     <script src="./../build/classwithpublicmembers.build.js"></script>
     <script src="./../build/privatemembers.build.js"></script>
+    <script src="./../build/inheritence.build.js"></script>
     <script>
         var o2 = new SimpleClass();
         console.log('Add with Square ' + o2.add(3,3));
@@ -25,6 +26,10 @@
         console.log(`${o3.getFullName()}`);
         var o4 = new PrivateMembers('', 'Rameshrao', 'Sabnis');
         console.log(`${o4.getFullName()}`);
+        console.log('USing Inheritence');
+        let obj = new DerivedClass(4);
+        console.log(`Raised to Power is = ${obj.getPower()}`);
+        console.log(`Square Root is = ${obj.getSquasreRoot()}`);
     </script>
 </head>
 <body>
