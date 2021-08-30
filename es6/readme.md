@@ -530,6 +530,43 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
     - ES 6 Proxy
         - It is an object that will be used for hinding the actual object withs its funcationality or may extend the exisitng funcationaly for specific client aka consumer                         
 
+- ES 6 Promise Object
+    - USed to Handle and Monitor Asynchronous Operatiosn from JS Front-End Apps
+        - Promise(resolve,reject)
+            - Resolve: The callback that represents the succsessfull execution and completion of Promise
+            - Reject: The callback that represents the error in execution
+        - The client MUST subscribe to the promise
+            - Promise.then(success).catch(error);   
+                - the 'then()' will be executed if the Promise is resolved
+                - the 'catch()' will be executed if the Promise is in Error State   
+        - Promise.all([p1,p2....p10);
+            - If all Promises are resolved then all() method will be executed succesfully, else error will occur
+        - To handle multiple promise methods seperately, use the ES 8 async and await calls            
+- ES 7 and 8
+    - Using async and await
+        - use 'async' as a method decorator for a method that calls a method(s) which is(are) returning promise object.     
+        - the method which returns promise object must be using 'await' keyword for method call
+        - syntax
+            async caller(){
+                await M1(); // returns Promise Object
+                await M2(); // returns Promise Object
+            }    
+        - the 'await' keyword will auto resolve promises and returns the response directly    
+- ES 6 Iterator
+    -  It is a Custom function that performs following
+        - Set a sequence with 'start', 'end' and 'step'
+            - start: the starting point of the collection
+            - end: end point of the collection
+            - step: the Jump for reading anmd returning value from the sequence      
+        - The Function return an object that contains
+            - next() method to moveNext and return the value at the current Index
+            - value: the value at the current index
+            - done: a Flag to check if the end of collection is received      
+- ES 6 Generator
+    - They are the function* marked functions with a conditional logic of reading data from the collection. When the condition is true, the record will be 'yield' from the collection and the next record will be evaluated
+        - yield: return and move next till end
+ - Advantages of Generator
+    - UnLike Array methods like map() or filter(), they will directly return record from collection when the condition is matched       
 # Hands-on-Labs on ES 6
 
 # Date : 25-Aug-2021
@@ -571,3 +608,9 @@ console.log(`Group by recoreds = ${JSON.stringify(output)}`);
     - For Consumer4(), the _Secret can be readonly 
 2. Complete the UI and Logic part for ProductLogic()
     - Note USe Array methods as per the requirements
+
+Date : 30-08-2021
+
+. CReate an array of patients ro read records only in General ward
+    - PatientId, PatientName, Ward
+    - Usse generator function

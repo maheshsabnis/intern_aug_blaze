@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./../source/Primises/simplecall.js"></script> -->
+    <script src="./../source/Primises/usingPromise.js"></script>
+    <script src="./../source/Primises/asyncawaitpromise.js"></script>
+    <script>
+        window.onload = function(){
+            console.log('Waiting for the data from the server');
+            var response = getData(); // subscribe to the promise object
+
+            // use the promise object to show the data
+            response.then(function(resp){
+                // success
+                document.getElementById('dvdata').innerText = resp;
+            }).catch(function(e){
+                // error
+                document.getElementById('dvdata').innerText = e;
+            });
+
+            document.getElementById('btnPost').addEventListener('click', function(){
+                let product = {
+                    ProductId:'Prd-101',
+                    ProductName: 'Laptop',
+                    CategoryName: 'Electronics',
+                    Manufacturer: 'HP',
+                    Description: 'Designer Laptop',
+                    BasePrice: 11211
+                };   
+                let response = postData(product); // Async Post Request
+
+                response.then(function(resp){
+                // success
+                document.getElementById('dvdata').innerText = resp;
+            }).catch(function(e){
+                // error
+                document.getElementById('dvdata').innerText = e;
+            });
+
+            },false); 
+            
+
+            document.getElementById('btnMult').addEventListener('click', function(){
+                let responses  =multiPromise()
+                .then(function(resp){
+                    console.log(resp);
+                    
+                      document.getElementById('dvP1').innerHTML+= resp[0];
+                  
+                    
+                        document.getElementById('dvP2').innerHTML+= resp[1];
+                   
+                }).catch(function(e){
+                    console.log('error ' + e);
+                });
+            },false);
+
+
+
+            document.getElementById('btnasyncawait').addEventListener('click', function(){
+                let resp = caller() .then(function(resp){
+                    console.log(resp);
+                      document.getElementById('dvP3').innerHTML+= resp[0];
+                        document.getElementById('dvP4').innerHTML+= resp[1];
+                   
+                }).catch(function(e){
+                    console.log('error ' + e);
+                });;  // returns an array of data as Promises
+              
+               
+                 
+            },false);
+
+            console.log('Data is received');
+        }
+    </script>
+</head>
+<body>
+    <h1>A Simpple Promise Call</h1>
+<div id="dvdata">
+
+</div>
+<input type="button" value="Post Data" id="btnPost">
+<hr>
+<input type="button" value="Multi Preomises" id="btnMult">
+<hr>
+<div id="dvP1">
+  <strong>
+      First Promise
+  </strong>
+</div>
+
+<div id="dvP2">
+    <strong>
+        Second Promise
+    </strong>
+  </div>
+
+  <h2>Using Async Await</h2>
+  <hr>
+<input type="button" value="Using Async/Await" id="btnasyncawait">
+<hr>
+<div id="dvP3">
+  <strong>
+      First Promise
+  </strong>
+</div>
+
+<div id="dvP4">
+    <strong>
+        Second Promise
+    </strong>
+  </div>
+
+
+</body>
+</html>
