@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dvdropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dvdropdown-content {
+            position: absolute;
+            background-color: lightcyan;
+            display: none;
+            box-shadow: 0px 8px 16px 0px fuchsia;
+            padding: 12px 16px;
+            min-width: 150px;
+            z-index: 1; /*overlap on the div*/
+        }
+        /*load the .dvdropdown-content based on event*/
+        /*the DOM element on which 'dvdropdown' class is applied is registered with  'hover' event to dipslay the  '.dvdropdown-content'*/
+        .dvdropdown:hover .dvdropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event based CSS 3</h1>
+    <h4>Eliminated of writing separate JavaScript Code</h4>
+
+    <div class="dvdropdown">
+        <p>Move Mouse Cursor over the text shown under span of container div</p>
+        <span>Move Mouse Over Me</span>
+        <div>
+        <div class="dvdropdown-content">
+            <strong>
+                Hello CSS 3
+                <input type="button" value="1">
+            </strong>
+        </div>
+    </div> 
+    </div>
+</body>
+</html>

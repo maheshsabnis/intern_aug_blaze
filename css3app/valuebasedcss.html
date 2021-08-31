@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div[class^='first']{
+            background-color: yellow;
+        }
+        div[class$='first']{
+            background-color: red;
+        } 
+        div[class*='third']{
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <h1>Style will be applied based on Value of the attribute of DOM element</h1>
+    <div class="first div page">
+        The First Div
+    </div>
+    <hr>
+    <div class="div page first">
+        The Second Div
+    </div>
+    <hr>
+    <div class="div third page">
+        The Third Div
+    </div>
+</body>
+</html>

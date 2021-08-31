@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, td {
+            border: double;
+            border-color: yellow;
+        }
+        tr:nth-child(1) {
+            color: red;
+            background-color: saddlebrown;
+        }
+        td:nth-child(1) {
+            background-color: salmon;
+        }
+        td:nth-last-child(1) {
+            background-color:black;
+            color: yellow;
+        }
+        p~input {
+            height: 50px;
+            width: 50px;
+            color: red;
+            background-color: yellow;
+        }
+        div{
+            border: double;
+        }
+        p:first-of-type {
+            font-family: cursive;
+        }
+        p:last-of-type {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Applying CSS on UI elements based on their Indexes</h1>
+    <table>
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>32</td>
+            <td>33</td>
+        </tr>
+    </table>
+    <hr>
+    <h1>Applying styles based on Order of DOM Elements </h1>
+    <input type="button" value="1">
+    <br>
+    <input type="button" value="2">
+    <br>
+    <p>Style will be applied to button after the Paragraph</p>
+    <input type="button" value="3">
+    <br>
+    <input type="button" value="4">
+    <br>
+    <h3>Style is applied based on the Appearance of the Element</h3>
+    <div>
+        <p>First Child</p>
+        <p>Second Child</p>
+        <p>Third Child</p>
+    </div>
+</body>
+</html>
