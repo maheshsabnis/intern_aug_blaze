@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="./../node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <h1>Using Form-Styles</h1>
+    <div class="container">
+      <div class="form-group">
+        <label for="EmpNo">EmpNo</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label for="EmpName">Emp Name</label>
+        <input type="text" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label class="form-check-label"> Select Department</label>
+        <br />
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="deptname" />IT
+        </label>
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="deptname" />HR
+        </label>
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" name="deptname" />SL
+        </label>
+      </div>
+      <div class="form-group">
+        <label class="form-check-label"> Select Hobbies</label>
+        <br />
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" />Singing
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" />Travelling
+        </label>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input" />Painting
+        </label>
+      </div>
+      <div class="form-group">
+        <label for="YearsofExperience">Experience</label>
+        <select class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="Certification"
+          >Select Certification (Select Multiple by holding shift button and
+          select multiple options)</label
+        >
+        <select multiple class="form-control">
+          <option>Sales Deploma</option>
+          <option>MBA - HR</option>
+          <option>IT Management</option>
+          <option>Accounting</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="TaxRange">Select the Tax Range</label>
+        <input type="range" class="form-control-range" />
+      </div>
+      <div class="form-group">
+        <label for="file">Upload Profile</label>
+        <input type="file" class="form-control-file border form-control-lg" />
+      </div>
+      <!--btn-group-lg: Large Group btn-group-sm: small group btn-group-verticle: verticale group-->
+      <div class="form-group btn-group">
+          <input type="button" value="Clear" class="btn btn-warning">
+          <input type="button" value="Save" class="btn btn-success">
+          <input type="button" value="Delete" class="btn btn-danger">
+          <input type="button" value="Update" class="btn btn-primary">
+      </div>
+      <!--SPinner Div-->
+      <div class="spinner-border"></div>
+      <div class="spinner-border text-muted"></div>
+      <div class="spinner-border text-danger"></div>
+      <div class="spinner-border text-success"></div>
+      <div class="spinner-border text-primary"></div>
+      <div class="spinner-border text-warning"></div>
+    </div>
+  </body>
+</html>
