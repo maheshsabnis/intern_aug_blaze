@@ -132,6 +132,29 @@ DB Query Types
     - Unique Key: The Value for the Row for Unique Key Will not be repeated for other rows in same table
         - Unique Keu can be null but primary key cannot be null
 
+- Using Identity Key
+	- Usded to generate the column value automatically starts from 1 by default
+	- When a row is inserted in table the Identity Column Value will be ganaretd based on Previous Row Value
+``` csharp
+Create table LeaveApplication (
+  ApplicationId int auto_increment primary key,
+  EmpNo int not null,
+  Reason varchar(1000) not null,
+  FromDate Date Not null,
+  ToDate Date Not Null,
+  ActualReportingDate Date
+);
+
+```
+
+
+- When using the Date and DateTime Datatype for columns use the following format
+	- YYYY-MM-DD
+
+
+
+
+
 # Assignment
 # Date: 02-09-2021
 
