@@ -54,26 +54,28 @@ insert into employee Value (101, 'Mahesh', 'Director', 123333, 10);
 -- DeptNo as 100 is not present in Department table
 -- Refertential Integrity COnstraint execution
 -- insert into employee Value (102, 'Tejas', 'Director', 123333, 100);
+-- Delete all rows from EMployee Table 
+truncate table Employee;
 
-insert into Employee Values(102, 'Vivek', 'Manager', 120000, 20);
-insert into Employee Values(103, 'Mukesh', 'Manager', 120000, 30);
-insert into Employee Values(104, 'Satish', 'Manager', 120000, 40);
-insert into Employee Values(105, 'Vinay', 'Lead', 120000, 10);
+insert into Employee Values(102, 'Vivek', 'Manager', 220000, 20);
+insert into Employee Values(103, 'Mukesh', 'Manager', 140000, 30);
+insert into Employee Values(104, 'Satish', 'Manager', 150000, 40);
+insert into Employee Values(105, 'Vinay', 'Lead', 370000, 10);
 insert into Employee Values(106, 'Tejas', 'Lead', 120000, 20);
-insert into Employee Values(107, 'Tushar', 'Lead', 120000,30);
-insert into Employee Values(108, 'Kaushubh', 'Lead', 120000, 40);
-insert into Employee Values(109, 'Nainish', 'Staff', 120000, 10);
-insert into Employee Values(110, 'AArav', 'Staff', 120000, 20);
-insert into Employee Values(111, 'Krushna', 'Staff', 120000, 30);
-insert into Employee Values(112, 'Sujay', 'Staff', 120000, 40);
-insert into Employee Values(113, 'Amit', 'Assistant', 120000, 10);
-insert into Employee Values(114, 'Abhijit', 'Assistant', 120000, 20);
-insert into Employee Values(115, 'Ajit', 'Assistant', 120000, 30);
-insert into Employee Values(116, 'Krutanjay', 'Assistant', 120000, 40);
-insert into Employee Values(117, 'Nandu', 'Operator', 120000, 10);
-insert into Employee Values(118, 'Anil', 'Operator', 120000, 20);
-insert into Employee Values(119, 'Abhay', 'Operator', 120000, 30);
-insert into Employee Values(120, 'Sanjay', 'Operator', 120000, 40);
+insert into Employee Values(107, 'Tushar', 'Lead', 340000,30);
+insert into Employee Values(108, 'Kaushubh', 'Lead', 450000, 40);
+insert into Employee Values(109, 'Nainish', 'Staff', 12090000, 10);
+insert into Employee Values(110, 'AArav', 'Staff', 230000, 20);
+insert into Employee Values(111, 'Krushna', 'Staff', 340000, 30);
+insert into Employee Values(112, 'Sujay', 'Staff', 430000, 40);
+insert into Employee Values(113, 'Amit', 'Assistant', 450000, 10);
+insert into Employee Values(114, 'Abhijit', 'Assistant', 670000, 20);
+insert into Employee Values(115, 'Ajit', 'Assistant', 340000, 30);
+insert into Employee Values(116, 'Krutanjay', 'Assistant', 170000, 40);
+insert into Employee Values(117, 'Nandu', 'Operator', 980000, 10);
+insert into Employee Values(118, 'Anil', 'Operator', 360000, 20);
+insert into Employee Values(119, 'Abhay', 'Operator', 760000, 30);
+insert into Employee Values(120, 'Sanjay', 'Operator', 330000, 40);
 
 
 
