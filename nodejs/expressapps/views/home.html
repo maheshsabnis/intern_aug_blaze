@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap.min.css" />
+    <script src="logic.js"></script>
+    <script>
+      window.onload = function () {
+        document.getElementById("btn").addEventListener(
+          "click",
+          function () {
+            done();
+          },
+          false
+        );
+
+        document.getElementById("btnget").addEventListener(
+          "click",
+          function () {
+            var promise = getData();
+            promise
+              .then((data) => {
+                console.log(`Received Data = ${JSON.stringify(data)}`);
+              })
+              .catch((err) => {
+                console.log(`Error = ${err}`);
+              });
+          },
+          false
+        );
+
+        document.getElementById("btnpost").addEventListener(
+          "click",
+          function () {
+            var product = {
+              ProductId: "Prd-004",
+              ProductName: "Desktop",
+              CategoryName: "Electronics",
+              Manufacturer: "HP",
+              Description: "XT Server MAchine 10 TB RAM 100 TB SSD",
+              Price: 12000000,
+            };
+            var promise = postData(product);
+            promise
+              .then((data) => {
+                console.log(`Received Data = ${JSON.stringify(data)}`);
+              })
+              .catch((err) => {
+                console.log(`Error = ${err}`);
+              });
+          },
+          false
+        );
+      };
+    </script>
+  </head>
+  <body>
+    <h1>The Home Page</h1>
+
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr>
+          <td>
+            <a href="/">Index</a>
+          </td>
+          <td>
+            <a href="/about">About</a>
+          </td>
+          <td>
+            <a href="/contact">Contact</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <input type="button" value="Hello" id="btn" />
+    <input type="button" value="Get" id="btnget" />
+    <input type="button" value="Post" id="btnpost" />
+  </body>
+</html>
