@@ -170,6 +170,46 @@ File System Module
                     - Seperate headers {AUTHORIZATION}, {CONMTEMT-TYPE}, {CUSTOM-DOMAIN}        
                 - HTTP METHODS
                     - get/post/put/delete    
+# Using Sequelize ORM with Node.js and Express  for Data Access
+- Install Sequelize with its  dependencies in global scope
+    - npm install -g sequelize sequelize-auto mysql2
+        - sequelize is ORM for Data Access
+            - COnnection with Database
+            - Map the JS Object with Database Table
+                - the Model object that will be used to run queries for CRUD operations using JS Methods
+                 findAll(),  findOne(), create(), update(), destroy()
+                    - all are async methods
+            - sync()
+                - Create  a table if not exist and overwrite it if exist       
+
+            - query()
+                - an async method that is used to e3xecure a row query (Select, DML)
+                - also this is sued to execute a stired procedure
+            - transaction()
+                - a method, that is used to perform DB Transactions when there are multiple tables to be operated using DML queries
+                    - Managed Transactions (Recommended)
+                        - When All Tables are operated successfully with DML queries then only the transaction will be commited else rolled back
+                    - UnManaged Transactions             
+                        - Can perform Individual Table operations
+                        - Commit will takes place when DML query per table is executed successfully and commit for that table will takes place
+                        - if any commit is failed all will be rolledback
+        - Sequelize-auto, the package for generating Logical Model from Database tables
+        -  MySql2, the MySQL Db provider for the ORM        
+- Run the following command to generate logical model from Database using sequelize-auto
+    sequelize-auto -h [DbServer-Name | IP-Address] -p [PORT-FOR-DB-CONNECTION] -d [database-name] -u [UserName] -x [Password] --dialect [DB-Driver-Name] -t [Blank-space-seperated-list-of-tables-to-map]
+
+ sequelize-auto -h  localhost  -p 3306 -d Company -u root -x P@ssw0rd_ --dialect mysql -t Department Employee
+
+    - use -p if the database is exposed from different posrt instead of default port. e.g. 1433 is default port for SQL Server, 3306 is default port for MySQL
+    - use --dialect for defining the Database Driver, 
+        - e.g. 'mssql', 'mysql', 'mariadb', etc.
+- DataType object
+`   - Provides JS Type Mappings with Database DataTYpes
+        - String for varchar, char, String
+        - Number for int
+        - Boolean for bit, boolean
+        - Date for DateTime, Date          
+- To define the maintainable, make sure that you create a separate file for Data Access and make it ES6+ async and await so that thje code will be easy        
 
 # Assignments
 # Date: 07-09-2021
@@ -215,3 +255,7 @@ https://www.dotnetcurry.com/nodejs/1225/call-external-service-using-nodejs
         - Will Access API to Add new Product            
     - Make sure that Products.html, AddProduct.html,UpdateProduct.html will be displayed on;y when the user logs in    
             
+# Date: 09-09-2021
+1. As an enhancements of assignment of Date :08-09-2021, add the DAL layer to Complete REST API from Front-End JS HTML pages making Ajax calls to REST APIs and gence store data in database
+
+HTML+JS+CSS (Front-End) -- Node.js+Express.js (REST API) + Node.js+Sequelize+MySql2 (Data-Access)
