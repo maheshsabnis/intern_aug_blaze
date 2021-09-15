@@ -211,6 +211,30 @@ File System Module
         - Date for DateTime, Date          
 - To define the maintainable, make sure that you create a separate file for Data Access and make it ES6+ async and await so that thje code will be easy        
 
+- Code-First Approach
+    - Define a Model with Properties and then Generate Database and Tables from it
+        - Define a Model using 'define()' method of Sequelize Object
+        - Sync () with the Database and generate Table with columns
+
+
+# Using User's State Management on the server
+    - The State means that the information about the Request-time, Last-Response-Time, Default-TimeOut
+        - Anonymous Store of State
+            - There is no limit for Accessing the resources from the server
+            - Generally used by Publically Accessible Web Apps those who does not need USers' information
+        - AUthenticated Access of the WebSite to store the Users' state
+            - Login, LogOut
+                - Login --> Session Start --> Request Time --> Last Response Time --> (Recursive Request and Respon Time Store) --> Session End (User End the Session using Logout OR the Server Performs Time-Out)    
+                - Each Web Server MUST have a mechanism of self Session-Timeout
+    - Use the Auth Features of the Node.js + Express using
+        - User-Based Authentication
+        - User-Based Authentication and Session State, recommended in Web Apps
+        - User-Based Authentication with Session State and Roles, Recommended in Web Apps
+        - User-Based Authentication with Token (and optionally Role-Based Authentication), Redcommended in REST APIs,            
+    - using express-session
+        - The packae uised for session Management in Express Apps
+
+
 # Assignments
 # Date: 07-09-2021
 
@@ -259,3 +283,20 @@ https://www.dotnetcurry.com/nodejs/1225/call-external-service-using-nodejs
 1. As an enhancements of assignment of Date :08-09-2021, add the DAL layer to Complete REST API from Front-End JS HTML pages making Ajax calls to REST APIs and gence store data in database
 
 HTML+JS+CSS (Front-End) -- Node.js+Express.js (REST API) + Node.js+Sequelize+MySql2 (Data-Access)
+
+
+# Date 15-09-2021
+1. Self-Study: Sequelize Migrations using sequelize-cli
+    - npm install -g sequelize-cli
+        - sequelize db:migration
+2. CReate a Role Table in Database as RoleId (Primary Key), RoleName (Unique Key)
+        - E.g. RoleNames are Administrator, Manager, Operator
+    - Assign the Role to the user
+    - Create an API for Creating Role
+    - CReate an API for Assigning Role to User
+        - There must be seperate table as UserInRole
+                - UserId,RoleId as a column
+                - One User can have only One Role
+    - Admin Role can perform CRUD Operations
+    - Manager Can Perform Only Create, Update and Read Operations but not delete
+    - Operator Role Can only Contain the Read Operation                      
