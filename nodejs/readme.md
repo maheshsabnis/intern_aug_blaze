@@ -234,6 +234,9 @@ File System Module
     - using express-session
         - The packae uised for session Management in Express Apps
 
+# USing JWT for Security
+- npm install --save jsonwebtoken
+
 
 # Assignments
 # Date: 07-09-2021
@@ -300,3 +303,6 @@ HTML+JS+CSS (Front-End) -- Node.js+Express.js (REST API) + Node.js+Sequelize+MyS
     - Admin Role can perform CRUD Operations
     - Manager Can Perform Only Create, Update and Read Operations but not delete
     - Operator Role Can only Contain the Read Operation                      
+
+# Date : 16-09-2021
+1. Self-Study: Explore Express-jwt for Node + Express Apps    
