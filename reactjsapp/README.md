@@ -110,8 +110,73 @@
             - internally the setState will use 'Object.keys()' to read the 'name' attributes of editable elements and assigne it to the curresponding value for the current updating editable element.   
 
 
+- React Application Development Scenarios aka guidelines to be considered for Using React.js
+    - A Complete Functional UI for Front-End of the the application 
+        - e.g. A Form for Accepting the Doctors information
+            - HTML Form with Editable Elements
+            - Model class for Defining the Logic for the form
+            - The UI Validations aka Front-End validation 
+            - Making an External AJAX Calls
+    - Requirements for Building a Functional UI
+        - Using the HTML 5 Form
+        - Manage the React Lifecycle(?) for Appropriate coding
+            - AJAX Calls
+            - Validation
+            - Error Handling     
+        - Planning for the UI Composition
+            - An approach of dividing the COmplex UI into small reusable Components and eastablish comunication across components     
+                - E.g. For Registering Employee create a Form having 2 Dropdowns e.g. Departments and Desginations
+                    - Instead of Creating droptdonw i.e. Select element repeatedly create a Dropdown resuabale components
+                        - Plan for Reusable component based on Following
+                            - Frequency of requiring the same UI across multiple Components
+                        - Challanges of Creaing Reusable UI
+                            - Planning for DataSource
+                                - The data passed to the reusable component to generate the DOM
+                            - What propeties will be exposed by the Reusable component for accepting data as well as emitting the data?
+                                - A scalar property (number,string, boolean, etc) or a collection (array,Map,Set, etc.)that will be accepted as input as well as emitted as output 
+                                - these properties will be passed to teh reusable component by its parent as input data and also accepted by parent when emitted by the reusable component 
+                            - How the Child component will emit data to parent component?
+                                - The child component (aka reusable component) will emit data using an event.
+                                - An event will be raised by the child component and must be subscribed by the parent component
+                            - What will be the UI?
+
+- Diff. Between export and export default
+    - The 'export' just export a type so that it must be imported using expression
+        - e.g. export class MyClass{...}
+        - then import it as
+            - import {MyClass} from 'filename'  
+    - The  'export default' exports a type with default schema
+        - e.g. class MyClass {....}. 
+            - export default MyClass;
+        - then import it as
+            - import MyClass from 'filename'            
+
+- to use CSS classes in component's UI elements uses 'className' attribute instaed of 'class' attribute. The reason is the the 'class' is akeyword in ES 6
+- If the DOM is generated dynamically, then a 'key' must be specifoed for the Element. The Key must be unique for the element
+
+- IMP***, the React STATE properties of the Collection Type can be updated explicitely 'using events' by using 'an assignment statement'. (aka Cannot be mutated), instaed use 'setState()' 
 
 # React.js Assignments
 
 # Date: 17-09-2021
 1. Create a Calculator Component (NO-GOOGLE) using React.js like windows Scientific Calculator
+
+# Date: 20-09-2021
+1 a. (Mandatory) Create a DataTableComponent with following specifications
+    - dataSource property: Used to generate columns and rows
+    - event method: getSelectedRow(), this will return the data of selected row
+    - canDelete: If this is true then shoe Delete button
+    - canSort: If this is true then the table will be sorted
+    - soryKey: the name of the property based on which the table will be sorted if canSort is true
+    - isPagination: if this is set to true, then pageSize property must be passed as non-zero positive value. If this property is false, then display all records
+    - pageSize: based on this property, the component will show rows and then the pagination will be displayed based on total number od records in dataSource 
+1 b. (Mandatory) Use the DataTable component to show data in it. When the Delete button is clicked, the record MUST be removed from the parent component's collection
+1.c. (optional) To the DataTableComponent pass a property as 
+    - canSearch: if this value is set to true, then display a Text Input element above the table and when data is entered in this text element, show the matched record in the table 
+
+2. (Mandatory) Create a Dropdown component that will allow multi-select. These multi-selected values must be returned to parent 
+
+3. (NOW) CReate a reusable component that will show the CheckBoxList as well as RadioButtonList
+    - Pass the datasource and generate CheckBoxList and RadioButtonList
+    - Return all selected CheckBox values to parent
+    - Only-One radio button value can be emitted from chiuld to parent

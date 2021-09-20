@@ -2,6 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// load bootstrap
+import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 // imporing the CSS file as a Module. This file will be loaded in the current JS Object context
 // and will be available for all React Components loaded under the current context
 import './index.css';
@@ -9,8 +12,11 @@ import './index.css';
 import App from './App';
 import SimpleComponent  from './components/statelesscomponent/simplecomponent'
 import SimpleStateComponent from './components/statefulcomponent/simplestatecomponent';
+import EmployeeFormComponent from './components/employeeformcomponent/employeeformcomponent';
+import EmployeeFormComponentReusable from './components/employeeformcomponent/employeeformcomponentreusable';
 // web utilities for creating a build and hosting
 import reportWebVitals from './reportWebVitals';
+import MultipleReusableComponent from './components/somecomponents/multipledropdowncomponent';
 
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
@@ -21,7 +27,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-    <SimpleStateComponent message={mymessage} />
+    <MultipleReusableComponent/>
   </React.StrictMode>,
   document.getElementById('root')
 );
