@@ -9,25 +9,28 @@ import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // and will be available for all React Components loaded under the current context
 import './index.css';
 // importing the App Component
-import App from './App';
-import SimpleComponent  from './components/statelesscomponent/simplecomponent'
-import SimpleStateComponent from './components/statefulcomponent/simplestatecomponent';
-import EmployeeFormComponent from './components/employeeformcomponent/employeeformcomponent';
-import EmployeeFormComponentReusable from './components/employeeformcomponent/employeeformcomponentreusable';
+// import App from './App';
+// import SimpleComponent  from './components/statelesscomponent/simplecomponent'
+// import SimpleStateComponent from './components/statefulcomponent/simplestatecomponent';
+// import EmployeeFormComponent from './components/employeeformcomponent/employeeformcomponent';
+// import EmployeeFormComponentReusable from './components/employeeformcomponent/employeeformcomponentreusable';
 // web utilities for creating a build and hosting
 import reportWebVitals from './reportWebVitals';
-import MultipleReusableComponent from './components/somecomponents/multipledropdowncomponent';
+// import MultipleReusableComponent from './components/somecomponents/multipledropdowncomponent';
+import LIfecycleComponent from './components/lifecyclecomponent/LifecycleParentComponent';
+import HttpCallComponent from './components/ajaxcallcomponent/httpCallComponent';
+import SecureHttpCallComponent from './components/ajaxcallcomponent/securecallcomponent';
 
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
 // Parameter 2: The DOM element on index.html where the component will be mounted  
 
-const mymessage = "I am the message from parent";
+// const mymessage = "I am the message from parent";
 ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-    <MultipleReusableComponent/>
+     <SecureHttpCallComponent></SecureHttpCallComponent>
   </React.StrictMode>,
   document.getElementById('root')
 );

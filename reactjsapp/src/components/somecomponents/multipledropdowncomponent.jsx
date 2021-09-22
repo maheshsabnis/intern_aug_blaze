@@ -7,10 +7,12 @@ class MultipleReusableComponent extends Component {
             states:['MH','MP', 'UP', 'GJ', 'KR', 'TN', 'TS', 'KL', 'RJ'],
             cities:['Pune', 'Vadodhara', 'Indore', 'Jaipur', 'Prayag', 'Kashi', 'Zhansi', 'Nagpur']
         };
+
     }
     render() { 
         return (
             <div className="container">
+                <h2>The Parent</h2>
                   <DropDownComponent dataSource={this.state.states}></DropDownComponent>  
                   <hr />
                   <DropDownComponent dataSource={this.state.cities}></DropDownComponent>  

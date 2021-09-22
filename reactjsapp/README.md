@@ -156,6 +156,31 @@
 
 - IMP***, the React STATE properties of the Collection Type can be updated explicitely 'using events' by using 'an assignment statement'. (aka Cannot be mutated), instaed use 'setState()' 
 
+# React Lifecycle
+    - Used for Good Coding Practices to decide what code goes where
+    - Guide to choose appropriate event to write an AJAX Call
+        - MAke an AJAX call inside the componentDidMount() method if the data is expected immediately when the component is loaded
+            - using axios library
+                - The Node.js based promise library that is used to make an AJAX calls from Node.js apps as well as Browser based apps
+                    - npm install --save axios
+                        - get(), post(), put(), delete()
+                            - all these returns promise object
+                        - get(url, options)
+                            - url is URL of REST API
+                            - options: Headers Values
+                        - post(url, data, options)/put(url, data, options)
+                            - data : the JSON object to be posted
+                        - delete(url)
+                    - all these m,ethods returns promise object                  
+    - Manage the explicit Event Subscription
+    - Error Handling in Components for Fallback UI
+
+- MERN
+    - MySQL, Express, React, Node
+- Validating the Front-End App
+- Secure AJAX Call
+- Building Single Page Application
+
 # React.js Assignments
 
 # Date: 17-09-2021
@@ -180,3 +205,9 @@
     - Pass the datasource and generate CheckBoxList and RadioButtonList
     - Return all selected CheckBox values to parent
     - Only-One radio button value can be emitted from chiuld to parent
+
+
+# Date:22-09-2021
+1. Create a Validation Summary Component. THis will be used for showing validation errors those occures for each component. Tis validation summary componmust be displayed at the bottem of each Component
+2. Start working on Healthcare Project.
+    - DOctor, Patient, Staff, Rooms, Wards, Medicines (Inshort Components for CRUD MUST be done by this weekend) withe SECURE REST API Call along with Register User and Login User Components     

@@ -1,11 +1,17 @@
 const express  =require('express');
-
+const cors = require('cors');
 const authLogic = require('./dal/tokenlogic');
 const instance = express();
 instance.use(express.urlencoded({extended:false}));
 instance.use(express.json());
 
-
+instance.use(
+  cors({
+    origin: "*", // all oriogins are allowd OR specify orogins as per your demand
+    allowedHeaders: "*", // allow all headers OR specifiy headers
+    methods: "*", // allow all method OR specify http methods
+  })
+);
 // apply the middleware for the token in express instance
  
 // define an object for the secret key
