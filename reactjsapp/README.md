@@ -211,3 +211,4 @@
 1. Create a Validation Summary Component. THis will be used for showing validation errors those occures for each component. Tis validation summary componmust be displayed at the bottem of each Component
 2. Start working on Healthcare Project.
     - DOctor, Patient, Staff, Rooms, Wards, Medicines (Inshort Components for CRUD MUST be done by this weekend) withe SECURE REST API Call along with Register User and Login User Components     
+3. REad About UnControlleed Components    
