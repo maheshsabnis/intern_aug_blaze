@@ -180,6 +180,42 @@
 - Validating the Front-End App
 - Secure AJAX Call
 - Building Single Page Application
+- Handling Error Boundries
+    - a Container Component that will manage lifecycle of children components and any exception thrown by them
+        - This  COmponent will implement 'componentDidCache(error, logInfo)' Method 
+            - error: is the error listened by the Error Boundry Component
+            - logInfo: Use3d to gtenerate the component's Statck Trace in the browser to show all error details with detailed error messages
+        - The component will also implement the Lifecycle Static Property of name 'getDErivedStateFromError(error)'
+            - This is a readonly property that will be used to listen the 'error' and make it available to the componentDidCache()       
+- Routing for Single Page Application (SPA) for React.js
+    - react-router-dom
+        - PAckage that supports the Routing based Single Page Application Development using React.js
+        - BrowserRouter
+            - A Container Component that is used to manage the navigation across Components
+        - Route
+            - A compponent that is used to define a Route Expression using following props
+                - exact: the Path Matcher
+                - path: the URL for Routing
+                - component: the component which will be loaded 
+        - Link
+            - The anchor tag, a component for querying the Route
+            - to: the Props that is used to accept the 'path' value of Route to route to the component
+        - Redirect
+            - The Component that will redirect to a default route path if the 'path' of Route is not found
+            - to: the Prop represent to which 'path' of Route to navigate to    
+        - Switch
+            - A component that is used to create a Route Table 
+        - The BrowserRouter is Container Component that is used to manage the navigations across COmponents using Route and its Child Router.Consumer
+            - The Router.Consumer, is used to perform following operations
+                - uses the props.history() to store the previous route state (the component from which the navigation is done
+                ) 
+            - the props.match.params.[ROUTE-PARAMETER]
+                - USed to pass data across components
+- Hight-Order-COmponent (HoC)
+    - The FActory Method (aka Pure Function in JavaScript), that will accept an input parameter as COmponent and return the output as component
+        - GUidelines for HOC
+            - The name of the function must in Pascal case (MUST start from Uppercase character)
+            - The Plan is mandatiory before using the HOC
 
 # React.js Assignments
 

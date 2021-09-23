@@ -20,17 +20,52 @@ import reportWebVitals from './reportWebVitals';
 import LIfecycleComponent from './components/lifecyclecomponent/LifecycleParentComponent';
 import HttpCallComponent from './components/ajaxcallcomponent/httpCallComponent';
 import SecureHttpCallComponent from './components/ajaxcallcomponent/securecallcomponent';
+import MyContainerComponent from './components/errorhandlingcomponnet/errorwithfallbackuicomponent';
+import MyErrorBoundryContainerComponent from './components/errorhandlingcomponnet/errorboundrycomponent';
+
+import CompanyComponent from './components/hocdemocomponent/companycomponent';
+import StockComponent from './components/hocdemocomponent/stockcomponent';
+import HoC from './components/hocdemocomponent/hocComponent';
+import {BrowserRouter} from 'react-router-dom';
+import MainSPAComponent from './routingapp/mainroutingcomponent';
 
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
 // Parameter 2: The DOM element on index.html where the component will be mounted  
+
+const companies = [
+  {Id:1,CompanyName:'Microsoft', Budget:120000},
+  {Id:2,CompanyName:'Oracle', Budget:620000},
+  {Id:3,CompanyName:'Google', Budget:520000},
+  {Id:4,CompanyName:'Adobe', Budget:80000},
+  {Id:5,CompanyName:'Amazon', Budget:720000}
+];
+
+const stocks = [
+  {Id:1,StockName:'Microsoft', Count:100},
+  {Id:2,StockName:'Oracle', Count:600},
+  {Id:3,StockName:'Google', Count:200},
+  {Id:4,StockName:'Adobe', Count:800},
+  {Id:5,StockName:'Amazon', Count:700}
+];
+
+const HocComponent1 = HoC(StockComponent, companies);
+const HocComponent2 = HoC(CompanyComponent, companies);
+ 
+
+
 
 // const mymessage = "I am the message from parent";
 ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-     <SecureHttpCallComponent></SecureHttpCallComponent>
+    {/* <BrowserRouter> */}
+      <HocComponent1 message="Passed from the Renderer"></HocComponent1>
+      <hr/>
+      <HocComponent2></HocComponent2>
+
+    {/* </BrowserRouter> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

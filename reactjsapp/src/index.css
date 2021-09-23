@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*Set the ifreame visibility to none to supress tye default iframe used by
+react CLI to show error messages*/
+
+iframe {
+  display: none;
+}
