@@ -248,3 +248,14 @@
 2. Start working on Healthcare Project.
     - DOctor, Patient, Staff, Rooms, Wards, Medicines (Inshort Components for CRUD MUST be done by this weekend) withe SECURE REST API Call along with Register User and Login User Components     
 3. REad About UnControlleed Components    
+
+# Date:23-09-2021
+1. Create a Route Based Navigation for  DOctor, Patient, Staff, Rooms, Wards, Medicines, ect for CRUD
+2. Makse sure that the Login COmponent is Displayed first.  The Register User, Activate User links can only be activated / displayed for 'Admin' Role users.
+    - The Receptionist Role can register the Patient
+    - The Doctor Role can only record observation on Patients
+    - The Doctor Role can only suggest the Patient Admission and Discharge
+    - The Bill Can be generated only by the Accountant Role
+    - Room / Ward Can be assigned to Patient only by the Admin Role User
+    - Only Nurse Role can update the infromation of Medicines applied to to the patient
+    - The Mewdicine-Staff can only Register medicines (Inward) and Issue Medicines to patient    
