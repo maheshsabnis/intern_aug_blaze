@@ -248,6 +248,8 @@
         - Class Components are NOT REMOVED OR RETIRED   
     - Using the React Hooks, defined for managing the State, Lifecycle, Data Sharing across functional components
     - They are functions with 'pre-defined' behavior
+        - Standard Hooks are always accessed at component level
+        - Except the standard Hooks can be called inside a function, if you are creating CUSTOM HOOKS 
         - Basic Hooks (used in all React Apps)
             - useState()
                 - Managing State of the funcational Component
@@ -260,10 +262,40 @@
                     - The 'setState' is the funcation that will modify the state
                         - This function will be used to update the 'state' from 'initialState' to new state based on DOM's Events   
                     - The 'inistalState' is the initial state of the state object 
-                    - function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
-                        - 
+                    - function useState<TST>(initialState: TST | (() => TST)): [TST, Dispatch<SetStateAction<TST>>];
+                        - TST, is the state object having defautl value as 'initialState'
+                        - Dispatch is the Function that will listen to the event or any other actoin that causes the state update 
             - useEffect()
+                - The hook which is a combination of 'componentDidMount()' and 'componentWillUnMount()'
+                    - Use this hook for
+                        - Async or long running oeprations
+                        - performing cleanup operations e.g. Releasing events
+                    - Syntax
+                        - useEffect({LongRunningOperations} return {cleanup operations}, Dependency Parameter);     
+                            - LongRunningOperations: will be immediately executed when component is mounted
+                                - THis will update state and hence result into rendering
+                                - this process will continue executing unless we inform that the process to stop
+                            - cleanup operations: this will be executed for component unmounting
+                            - Dependency Parameter: This is a parameter that signals to the useEffect() that the state is updated and the longRunningProcess can stop executing
+                                - There May be multiple State properties those will be updated using longRunningProcess, so inform the state update once-for-all, pass the dependency parameter as an 'EMPTY ARRAY' 
+
             - useContext()
+                - This is the hook that will be used to pass data from parent component to specific child component
+                    - This is an implementation of React.Context
+                - The 'createContext()' object from 'react' is used for creating a Context of data to be send from parent component to the child component
+                    - const DataContext = createContext(InitialValue) 
+                        - The 'InitialValue' is the value to be communicated.
+                        - The InitialValue can be
+                            - {object} 
+                            - {{object, callback}}   
+                                - An 'callback' is actually a Dispatch Action passed to the child component to receive data from the child component when the child component raise an event. THis 'callback' will be used to update the state in parent component 
+                    - Passing data from parent
+                        - <DataContext.Provider value={}> <ChildCompoennt>   </DataContext.Provider>
+                            - ChildComponent is the component to which the data is sent    
+                            - The 'value' represents the data that is sent
+                   - In ChildComponent, the data can be read as
+                        - let data = useContext(DataContext) 
+
         - Additional Requirement Based Hooks (used only in sapplied cases)
             - useReducers()
             - useMemo()
@@ -318,4 +350,7 @@
     - The Bill Can be generated only by the Accountant Role
     - Room / Ward Can be assigned to Patient only by the Admin Role User
     - Only Nurse Role can update the infromation of Medicines applied to to the patient
-    - The Mewdicine-Staff can only Register medicines (Inward) and Issue Medicines to patient    
+    - The Mewdicine-Staff can only Register medicines (Inward) and Issue Medicines to patient   
+
+  # Date: 24-09-2021
+  1. Create a Component that will perform the CRUD operations with Express REST APIs.   
