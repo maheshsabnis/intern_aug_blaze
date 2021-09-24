@@ -29,6 +29,8 @@ import HoC from './components/hocdemocomponent/hocComponent';
 import {BrowserRouter} from 'react-router-dom';
 import MainSPAComponent from './routingapp/mainroutingcomponent';
 
+import MyFunctionalComponent from './hooksapps/functionalcomponent/simplefunctionalcomponent';
+
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
 // Parameter 2: The DOM element on index.html where the component will be mounted  
@@ -60,12 +62,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-    {/* <BrowserRouter> */}
-      <HocComponent1 message="Passed from the Renderer"></HocComponent1>
-      <hr/>
-      <HocComponent2></HocComponent2>
-
-    {/* </BrowserRouter> */}
+     <MyFunctionalComponent message={'Hay Funcational Component, You are great!!!!'}/>
   </React.StrictMode>,
   document.getElementById('root')
 );

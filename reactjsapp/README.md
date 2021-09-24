@@ -217,6 +217,66 @@
             - The name of the function must in Pascal case (MUST start from Uppercase character)
             - The Plan is mandatiory before using the HOC
 
+
+# React.js Phase 2
+- Using React Hooks, from 16.8+
+    - An approach of creating a component using Functions rather than classes
+    - Functional Components with Following Syntaxes
+        - function returning HTML
+            - function MyComponent(){..... return(<HTML/>);}
+                - This contains inner functions for the Logic
+        - a constant function expression that returns HTML
+            - const MyExpressionComponent=()=>{
+                return (<HTML/>);
+            }
+        - function expression that itself act as a HTML UI than returning HTML DOM
+            - const ExpressionComponent=()=>(<HTML/>) 
+    - Advantages
+        - Code is simple
+        - the function component auto-define the 'this' scope, so it is not required to use 'this' prefix for any function call with the functional component
+        - Not Class, no Constructor and inheritence
+        - the 'props' is as it is
+        - the bind() method is not necessary for binding
+        - Class COmponent's complexity e.g. Lifeccycle methods are emploetly removed
+        - WE can have small focused utility funcational components and reuse them , this was difficult in Class Components because of the Lifecycle methods 
+    - Facts of Functional Components
+        - They can have local properties declared and intialized 
+        - These properties can be bound to HTML elements and their value can be shown on UI
+        - BUT these are not 'state properties'
+        - WHAT ABOUT STATE IN FUNCTIONAL COMPONENTS?    
+    **** IMP ***
+        - Class Components are NOT REMOVED OR RETIRED   
+    - Using the React Hooks, defined for managing the State, Lifecycle, Data Sharing across functional components
+    - They are functions with 'pre-defined' behavior
+        - Basic Hooks (used in all React Apps)
+            - useState()
+                - Managing State of the funcational Component
+                - const [state, setState]=useState(initialState);
+                    - The 'state' is the state that will be bound to Component
+                        - The 'state' can be
+                            - primitive type
+                            - Object
+                            - Array
+                    - The 'setState' is the funcation that will modify the state
+                        - This function will be used to update the 'state' from 'initialState' to new state based on DOM's Events   
+                    - The 'inistalState' is the initial state of the state object 
+                    - function useState<S>(initialState: S | (() => S)): [S, Dispatch<SetStateAction<S>>];
+                        - 
+            - useEffect()
+            - useContext()
+        - Additional Requirement Based Hooks (used only in sapplied cases)
+            - useReducers()
+            - useMemo()
+            - useRef
+            - useCallback()        
+            - useLayoutEffect()
+            - iseDebuggerVlaue()
+            - iseInperativeHandler()      
+- Code-Splitting
+- Fragments
+- Portals
+- Profilers            
+
 # React.js Assignments
 
 # Date: 17-09-2021
