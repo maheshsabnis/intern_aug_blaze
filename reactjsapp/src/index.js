@@ -30,6 +30,8 @@ import {BrowserRouter} from 'react-router-dom';
 import MainSPAComponent from './routingapp/mainroutingcomponent';
 
 import MyFunctionalComponent from './hooksapps/functionalcomponent/simplefunctionalcomponent';
+import SimpleCalculatorComponent from './hooksapps/useStatecomponent/simplecalculator';
+import DepartmentComponent from './hooksapps/useStatecomponent/departmentcomponent';
 
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
@@ -62,7 +64,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-     <MyFunctionalComponent message={'Hay Funcational Component, You are great!!!!'}/>
+     <DepartmentComponent></DepartmentComponent>
   </React.StrictMode>,
   document.getElementById('root')
 );
