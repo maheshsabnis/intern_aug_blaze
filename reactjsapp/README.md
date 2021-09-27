@@ -297,17 +297,59 @@
                         - let data = useContext(DataContext) 
 
         - Additional Requirement Based Hooks (used only in sapplied cases)
-            - useReducers()
+            - useReducer()
+                   - a hookthat is used to update an initial state to final state based on external conditions
+                    - USe Case
+                        - COnsider that, the component is executing a long running process, and this process my be successfully executed and return  data or may be crashed.
+                        - If the execution is successful then update the state with successful data or else if failed then update the state with error
+                        - e.g. Init--> Process --> Successful
+                               Init --> Process --> Failed  
+                    - useReducer() is used to manage the State of the COmponent w/o using any external State Management
+                - useState() Vs useReducer()  
+                    - useState(InitislState)
+                        - Dispatch the action based on Event and immiditely update the state or generate an error and crash
+                    - useReducer(appReducer, initialState)
+                        - appReducer Object, this is a function that will monitor an external execution and based on the state of external execution, the initialState will be toggeled from Init-to-Final ot Init-to-Error without any crash
+                        - initialState: The the State Object that defines, initialState of external operations, error state and final successful result form the external operations                     
+
             - useMemo()
+                - Memoization
+                    - Process of caching the data in the broeser instead of reloading it it again and again
+                    - This is meant for improvising tyhe performance of the JS that contains functions which is resursively executed and generate results again and again
+                - const fact = num=>{ if(!fact.cache){ fact.cache={} } 
+                    if(fact.cache[num] !== undefined return fact.cache[num]; // Cache the value
+                        else  { // do sdomething }
+                        fact.cahce[num] = num === 0?1: num* *fact(num-1)
+                        return fact.cache[num];
+                      }       
             - useRef
             - useCallback()        
             - useLayoutEffect()
-            - iseDebuggerVlaue()
-            - iseInperativeHandler()      
+            - useDebuggerVlaue()
+            - useInperativeHandler()      
+        - CReating a Custom Hook
+            - USe Case:
+                - The need of similar operation (or executable logic) to be performed across various components    
+                - Generally they are used for state based validations aka custom validations, AJAX Calls, ect.
+                - Technically, they are functions those uses standard Hooks in it.
+            - Write a generic functionality in the custom hook for reusability    
 - Code-Splitting
+    - Segregating the Code in separate modules and loading these modules aynshronously
+    - Divide the Front-End UI in separate files and load them (use them) as per the requiremnets
+    - SOlutions 1: for Missing Dependencies
+        - Use and asynchronous import to look for the file and load it
+            - Use the fallback function to execute a covering code, if the file to download is missing or has error during load
+    - Solution 2: For the Component that is taking time to load or the compnent being loaded has so heavy load operations
+        - Use The React.js 'Lazy Loading'  (Recommended) From 16.8     
+            - <Suspense> the default component that will be acting as a fallback UI if the component is not loaded     
 - Fragments
+    - Auto Layouting
+    - <Fragment> for defining the Layout
+    - Also uses as <></>
 - Portals
+    - Managing the DOM Rendering effectively
 - Profilers            
+    - Profiler Measures
 
 # React.js Assignments
 

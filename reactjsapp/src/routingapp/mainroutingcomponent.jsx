@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 // import classes for defining the Routing INfrastructure
 import { Route, Redirect, Link, Switch } from "react-router-dom";
 import CreateDepartmentComponent from "./createdepartment";
@@ -32,6 +32,7 @@ class MainSPAComponent extends Component {
         </table>
 
         {/* Defining the Route Table */}
+        
         <Switch>
             <Route exact path="/" component={ListDepartmentsComponent}></Route>
             <Route exact path="/create" component={CreateDepartmentComponent}></Route>

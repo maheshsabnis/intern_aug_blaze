@@ -32,6 +32,12 @@ import MainSPAComponent from './routingapp/mainroutingcomponent';
 import MyFunctionalComponent from './hooksapps/functionalcomponent/simplefunctionalcomponent';
 import SimpleCalculatorComponent from './hooksapps/useStatecomponent/simplecalculator';
 import DepartmentComponent from './hooksapps/useStatecomponent/departmentcomponent';
+import ToggleComponent from './hooksapps/useeffectlifecyle/ToggleComponent';
+import UseMemoComponent from './hooksapps/usememocomponent/usememocomponent';
+import UsePromiseHookComponent from './hooksapps/customhoolks/usecustomhookcomponent';
+import UseReducerComponent from './hooksapps/usereducerdemo/usereducercomponent';
+import ImportingComponent from './adv/codesplitting/importingcomponent';
+import LazyLoadComponent from './adv/lazyloading/loazyloadcomponent';
 
 // the render() function of ReactDOM object aceepts tow parameters
 // Parameter 1: The component to be rendered in HTML DOM aka Mounted
@@ -64,7 +70,7 @@ ReactDOM.render(
   <React.StrictMode>
     {/* The JSX Parser of the React wil generate propeties dynamically for the Component */}
     {/* the SimpleStateCompopnent will read value of  'message' using this.props.message */}
-     <DepartmentComponent></DepartmentComponent>
+    <LazyLoadComponent></LazyLoadComponent>
   </React.StrictMode>,
   document.getElementById('root')
 );
