@@ -351,6 +351,78 @@
 - Profilers            
     - Profiler Measures
 
+# Using Redux
+- State Management for React Apps
+- Store
+    - Global Application State Object for React + Redux Apps
+    - Contains Data that is required for all Components
+    - Its has Schemas for storing soecific data. e.g. Products, Customers, etc.
+    - This can be queried for Read Operations
+- Views
+    - React Components
+    - responsible to contains UI events so that actions with or without data can be dispatched
+    - Each Component Subscribes to Store
+    - The Component gets data from Store
+- Actions
+    - They are the Objects those are responsible to gets executed whn an event fired by component
+    - Each Action mey accept data as input parameter from View
+    - Action can be Synchronous or Asynchronous
+    - The output from the action is always provided to the reducer
+- Reducers
+    - This is a PURE Function in JavaScript that is responsible to update the store
+    - Input parameter of the reducer function is state and the type of actoin executed
+    - Output is the state object that is updated in store
+
+- Packages for Redux
+    - redux
+        - The 'createStore()' method, this is used to create an Application State Object i.e. Store
+            - createStore(REDUCER, ENHANCER)
+                - REDUCER: The Reducer Object created using 'combineReducer()'
+                - combineReducer() aggrigates all reducer functions in a single object
+                - combineReducers() is also present inside the 'redux' package
+                    - The combibeReducer() is responsible to provide the data (state) that is updated in the store   
+                - The reducer is finally responsible to monitor all the actoins and their execution
+           - Enhancer
+                - Object that provides an additional behavior to the store object as follows
+                    -  The In-Browser simulation of the Redux App e.g.Dispatched Actoins, Sync and Async Calls, the STore Initial Data and Updated / Final Data
+                    - Recommended to be used in the Developent phase and not in production
+                - The Middleware(?)
+                    - Used to Monitor and execute all Async Actions dispatched from UI
+                    - Mandatory in case of Async Programming
+                    - SAGA (Industry Standard Middleware, recommended for REDUX APPs)   
+                    - THUNK            
+
+    - react-redux
+        - Bridge between React Object Model and Redux
+        - The 'Provider' Object
+            - Manages the Lifecyce of the React Components under the Readux store
+                - <Provider store={STORE-OBJECT> <React-Component/> </Provider> 
+        - mapDispatchToProps Object
+            - Bind the Action to Be dispatched to UI element using the 'props'
+            - When an event is fired on UI element, the action is dispatched
+        - mapStateToProps object
+            - Map the data (state) from the redux store to the 'props' so the tha data can be shown in the component
+            - Query to the redux store and retrive data from store so the UI can show tat data
+        - connect(mapDispatchToProps, mapStateToProps) (React-Component)
+            - Subscribe the redux Store to react components    
+        - The Redux Hooks from React 16.8+
+            - useDispatch() hook
+                - Used to dispatch an acion from UI based on event fired by the UI element
+                    - replacement for mapDispacthToProps
+            - useSelector()
+                - Subscribe the store to the React Component
+                - replacement of mspStateToProps
+    - Implementatoin
+        - Plan for Views
+        - Plan for All Events from Views
+        - Define Action Methods (Sync / Async)
+        - Define Reducers and Combine all Reducers
+        - Create a Store Object
+        - Pass the Store Object to Provider to use it with React Apps                        
+
+
+
+
 # React.js Assignments
 
 # Date: 17-09-2021
