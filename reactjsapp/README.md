@@ -372,6 +372,10 @@
     - This is a PURE Function in JavaScript that is responsible to update the store
     - Input parameter of the reducer function is state and the type of actoin executed
     - Output is the state object that is updated in store
+    - IMP***: The reducer will not have any Business Logic or Long Running Operations
+        - No Async Operations
+        - No Complex Data Structuture Operations
+        - No COmplex Date Time Operations
 
 - Packages for Redux
     - redux
@@ -420,6 +424,24 @@
         - Create a Store Object
         - Pass the Store Object to Provider to use it with React Apps                        
 
+- REdux with Async Operations
+`- USe SAGA Middleware
+    - saga
+    - redux-saga Package
+        - applyMiddleware
+            - A method provided by 'redux' packlage and used by redux-saga package
+        - createSagaMiddleware() method
+            - used to create and register the 'SAGA' middleware object(?) in the redux store alonmg with the reducer
+            - Listen to an actions that needs async operations
+            - Manage and handle async promises with its subscriptions
+            - When an Async Operation is completed the SAGA will dispatch the output action`
+        - redux-saga/effects
+            - The package used to provide methods for Handling SAGA Operations
+                - all()
+                - put()
+                - take()
+                - takeLatest()
+                - call()        
 
 
 

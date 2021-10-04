@@ -7,6 +7,7 @@ import {combineReducers} from 'redux';
 // create a reducer that will monitor the ADD_DEPARTMENT action
 
 export const addDepartmentReducer=(state,action)=>{
+    console.log('In Add Reducer');
     switch(action.type) {
         case 'ADD_DEPARTMENT':
             // the state will contain tthew newly created department object
@@ -24,6 +25,7 @@ export const addDepartmentReducer=(state,action)=>{
 //returned from it
 // the state=[] means the current state of the store is an empty array
 export const listDepartmentsReducer=(state=[], action)=>{
+    console.log('In List Reducer');
     switch(action.type){
         case 'ADD_DEPARTMENT':
             // the current reducer function is invoking the
