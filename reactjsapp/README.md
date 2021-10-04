@@ -468,3 +468,10 @@
 
   # Date: 24-09-2021
   1. Create a Component that will perform the CRUD operations with Express REST APIs.   
+
+  # Date: 04-Oct-2021
+  - Modify the Redux App using the following
+    - Create an action, that will  be dispatched when the row in the table is clicked
+        - Select the Department Object
+    - THis action has to monitor by the reducer and the reducer will return the selected record from the store and this record will be shown in the other component  
+        - Based on the department object the department details must be shown in the CreateDepartmentReduxComponent textboxes 
