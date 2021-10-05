@@ -468,7 +468,7 @@
     - Pro0vide the store to the React Components
 - Execution Process
     - SAGA and Reducers are executing at Application level and MOnitring Action
-    - View DIspatch Action --> SAGA Listen to the Action --> SAGA Executes the action using Generator Functions --> The Response of the Async Execution is Collected by SAGA Generator Functions --> The Generator function Dispatch the Output action with Result--> The Reducer Listen to the Output Action Dispatched by SAGA Generator FUnction --> Reducre Stae the lates State and Update it in store --> The data from Store is Updated back in COmponent over the subscription
+    - View DIspatch Action (mapDispatchToProps) --> SAGA Listen to the Action --> SAGA Executes the action using Generator Functions --> The Response of the Async Execution is Collected by SAGA Generator Functions --> The Generator function Dispatch the Output action with Result--> The Reducer Listen to the Output Action Dispatched by SAGA Generator FUnction --> Reducer update the Store the latest State  --> The data from Store is Updated back in COmponent over the subscription (mapStateToProps)
 
 
 

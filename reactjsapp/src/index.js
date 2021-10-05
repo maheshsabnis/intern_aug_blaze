@@ -10,24 +10,39 @@ import './../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+import MainSagaComponent from './sagaapp/mainsagacomponent';
 
-// import the redux and react-redux object model
-import {createStore} from 'redux';
+// import redux store, saga middleware and compose object
+// applyMiddleware: The method that will build the middleware
+// and use this middleware at application level
+// so that all dispatched actions will be monitored
+
+// compose: the object that will be used to build the 'ENhancer'
+// object so that the REDUX Tools and the SAGA Middleware
+// will be passed to the store
+import {createStore, applyMiddleware, compose} from 'redux';
 import {Provider} from 'react-redux';
-import reducers from './reduxapp/reducers/reducers';
-import MainReduxComponent from './reduxapp/mainreduxcomponent';
- 
-// define a store object
-// window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: will subscribe to the REDUX extension 
-// of the browser to show the simulation
-let store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__());
+import reducer from './sagaapp/reducers/reducers';
+import rootSaga from './sagaapp/sagas/index';
+import createSagaMiddleware from 'redux-saga'; 
+
+// build the middleware instance
+const appSagaMiddleware = createSagaMiddleware();
+// parameter enhancer
+const parameterEnhancer =  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+// create a store
+let store = createStore(reducer,
+   parameterEnhancer(applyMiddleware(appSagaMiddleware)));
+
+// keep the Root Saga running at the application level
+appSagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* the MainReduxComponent will now have its lifecycle under the redux store*/}
-      <Provider store={store}>
-        <MainReduxComponent></MainReduxComponent>
-      </Provider>
+    <Provider store={store}>
+       <MainSagaComponent></MainSagaComponent>
+    </Provider>  
   </React.StrictMode>,
   document.getElementById('root')
 );
