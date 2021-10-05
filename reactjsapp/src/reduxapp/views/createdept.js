@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 
 // the props will be used to receivd data from the Parent
 // currently the props has 'AddDepartment' method reference
-// the AddDepartment will be used to dispatch an action 
+// the AddDepartment will be used to dispatch an action
 const CreateDepartmentReduxComponent = (props) => {
   const [dept, setDept] = useState({
     DeptNo: 0,
@@ -12,11 +12,10 @@ const CreateDepartmentReduxComponent = (props) => {
     Capacity: 0,
   });
 
-   
-  const [message,setMessage] =useState('');
+  const [message, setMessage] = useState("");
 
   const clear = () => {
-      // clear the department object 
+    // clear the department object
     setDept({
       DeptNo: 0,
       DeptName: "",
@@ -24,19 +23,28 @@ const CreateDepartmentReduxComponent = (props) => {
       Capacity: 0,
     });
   };
-   
 
 
+  useEffect(() => {
+    if (deptSel.department !== undefined) {
+      setDept(deptSel.department.department);
+    }
+  });
 
-  const save=()=>{
-    // dispatch the action 
-    props.AddDepartment(dept); 
+
+  const deptSel = useSelector((state) => state.selectDepartmentReducer);
+  console.log(deptSel);
+
+ 
+  const save = () => {
+    // dispatch the action
+    props.AddDepartment(dept);
   };
 
   return (
     <div className="container">
       <h2>The Department Functional Component using Hooks</h2>
-     
+
       <form>
         <div className="form-group">
           <label htmlFor="DeptNo">DeptNo</label>
@@ -84,19 +92,25 @@ const CreateDepartmentReduxComponent = (props) => {
         </div>
         <hr />
         <div className="btn-group">
-          <input type="button" value="Clear" className="btn btn-primary" onClick={clear} />
+          <input
+            type="button"
+            value="Clear"
+            className="btn btn-primary"
+            onClick={clear}
+          />
           {/* Once the save button is clicked the AddDepartment props will be invoked and the 
           'dept' state will be passed to it. This will dispatch the addDepartment Action */}
-          <input type="button" value="Save" className="btn btn-success" onClick={save}/>
+          <input
+            type="button"
+            value="Save"
+            className="btn btn-success"
+            onClick={save}
+          />
         </div>
       </form>
       <hr />
-      <strong>
-          {message}
-      </strong>
-   
+      <strong>{message}</strong>
     </div>
-
   );
 };
 

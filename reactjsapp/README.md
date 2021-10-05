@@ -427,21 +427,48 @@
 - REdux with Async Operations
 `- USe SAGA Middleware
     - saga
+        - A recommended Middleware for React-Redux Stae Management Applications for maintaining promise based ajax calls
+        - Saga makes sure that any action dispatched by the component is monitored and executed as per the logic (Sync / Async) 
+        - If the async operations are to be performed then the SAGA will uses the Generator functions to subscribe to Async Operations and Receiving the result after completing the async operations
     - redux-saga Package
         - applyMiddleware
             - A method provided by 'redux' packlage and used by redux-saga package
         - createSagaMiddleware() method
-            - used to create and register the 'SAGA' middleware object(?) in the redux store alonmg with the reducer
+            - used to create and register the 'SAGA' middleware object(?) in the redux store along with the reducer
             - Listen to an actions that needs async operations
             - Manage and handle async promises with its subscriptions
             - When an Async Operation is completed the SAGA will dispatch the output action`
         - redux-saga/effects
             - The package used to provide methods for Handling SAGA Operations
                 - all()
+                    - Like reducers there can be multiple SAGA generators available in the application.
+                    - The all() method is responsible for monitoring all generator at application level 
                 - put()
+                    - Used to Dispatch the Output action when the Promise is resolved /  rejected after the call() method completed its execution
+                        - The Output action dispatched using the put() method is listened by Reducer and the data returned by the  put()  method i.e. action type and payload will be used by reducer to update the state in the store 
                 - take()
+                    - Listen to the specific action dispatched by the component
+                    - take('ACTION_NAME')
+                        - This internally uses the gennerator and yield the generator reponse. i.e. the method which is using call() method to invoke the Promise based operations 
+                        - The take() is actually responsible to process the action dispatched from the View
                 - takeLatest()
-                - call()        
+                    - Same as the take() except it processed the latest action dispatched by the view
+                - call()
+                    - INvokes a method that returns a resolved promise  object
+                    - Internally it uses a generator to yield the promise response
+                    - The returned value from the yield may be a 'Promise' or 'resolved Promise' containing the execution state of the promise
+                        - Success or Failed           
+
+- STeps of  Implementing SAGA
+    - CReate Views
+    - Create Actions nand Action Creators (Logic)
+    - Create SAGA Middleware methods
+    - CReate Reducers
+    - Creatr Store with Reducers and SAGA Middleware
+    - Pro0vide the store to the React Components
+- Execution Process
+    - SAGA and Reducers are executing at Application level and MOnitring Action
+    - View DIspatch Action --> SAGA Listen to the Action --> SAGA Executes the action using Generator Functions --> The Response of the Async Execution is Collected by SAGA Generator Functions --> The Generator function Dispatch the Output action with Result--> The Reducer Listen to the Output Action Dispatched by SAGA Generator FUnction --> Reducre Stae the lates State and Update it in store --> The data from Store is Updated back in COmponent over the subscription
 
 
 

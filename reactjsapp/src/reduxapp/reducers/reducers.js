@@ -20,6 +20,21 @@ export const addDepartmentReducer=(state,action)=>{
     }
 };
 
+
+export const selectDepartmentReducer=(state,action) =>{
+    //  alert('Add Product Reducer');
+    switch(action.type) {
+       case 'SELECT_DEPARTMENT': 
+          return {
+              department: action.department // the state to be added in store
+          }
+        default: 
+          state = {}
+          return state; // else return the default state from  store  
+    }
+  }
+
+
 // create a single reducer function that will listen to all actions at once and
 // invoke individual reducers functions and update store based on the state 
 //returned from it
@@ -40,11 +55,13 @@ export const listDepartmentsReducer=(state=[], action)=>{
     }   
 }
 
+
+
 // use the combineReducers object from the redux package
 // so that the single reducer will be used to declare the store
 // since the 'listDepartmentsReducer' is invoking the 
 // 'addDepartmentReducer' the combinbeReducers will have only
 // the 'listDepartmentsReducer'
-const reducers = combineReducers({listDepartmentsReducer});
+const reducers = combineReducers({listDepartmentsReducer, selectDepartmentReducer});
 
 export default reducers;
