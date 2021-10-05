@@ -92,6 +92,7 @@ instance.post("/api/departments", (req, resp) => {
         message: "Data is Added Successfully",
         rows: data,
       });
+       
     })  
     .catch((error) => {
       resp

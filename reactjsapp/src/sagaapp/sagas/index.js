@@ -18,9 +18,7 @@ function getDepartments(){
 function postDepartment(dept){
     let serv = new DepartmentHttpService();
     const response = serv.postData(dept).then((result)=>result.data);
-    // response.then((d)=>{
-    //     console.log(JSON.stringify(d));
-    // });
+    
    return Promise.resolve(response);   
 }
 
@@ -49,15 +47,13 @@ function* inputActionGetDepartmentsGenerator(){
     yield takeLatest('GET_DEPARTMENTS', outputActionGetDepartmentsSuccessGenerator);
 }
 
-function* outputActionSaveDepartmentSuccessGenerator(){
-    // read parameters of the action which is dispatched
-    const parameters = yield take('SAVE_DEPARTMENT');
+function* outputActionSaveDepartmentSuccessGenerator(action){
     // read the data passed to action method when the dispatch has been taken place
-    const dept = parameters.dept;
+    const dept = action.dept;
     console.log(`Received Parameter for Post ${JSON.stringify(dept)}`);
     // call the method
-     //const response = yield call(postDepartment, dept);
-       const response = yield call(()=>postDepartment(dept)); 
+     const response = yield call(postDepartment, dept);
+   
     console.log(`Generator in Post success is = ${JSON.stringify(response)}`);
     // dispatch an putput action 
     yield put({
@@ -67,6 +63,10 @@ function* outputActionSaveDepartmentSuccessGenerator(){
 }
 
 function* inputActionSaveDepartmentGenerator(){
+    // The take latest will read the returned payload of the dispatched action from the view
+    //{type: 'SAVE_PRODUCT', dept} in an 'action' object
+    // this actgion object will be passed to the second parameter
+    // of the takeLatest
     yield takeLatest('SAVE_DEPARTMENT', outputActionSaveDepartmentSuccessGenerator);
 }
 

@@ -10,9 +10,9 @@ export const getDepartments=()=>{
 export const saveDepartment=(dept)=>{
      
     dept = {
-        DeptNo:1009,
-        DeptName:'Dept_1007',
-        Location: 'Location_1007',
+        DeptNo:100,
+        DeptName:'Dept_100',
+        Location: 'Location_100',
         Capacity:2000
     };
     console.log(JSON.stringify(dept));
