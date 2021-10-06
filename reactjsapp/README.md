@@ -472,6 +472,58 @@
 
 
 
+# Testing React Apps using Enzyme and Jest
+- Use Enzyme, an open source JS Testing Library by AirBnB for testing DOM based on jQuery Traversing
+- Jest, by Facebook used to test JS apps w/o browser
+- npm install --save-dev enzyme
+
+- CReate a Component for Test and then use Jest-DOM for Test that will use enzyme internally
+
+- TO write a unit test on the React Component, please follow steps
+    - Deing Testing Environment
+        - react-dom
+            - render(), manage the rendering of the DOM of the Component
+                - DOM is created in the memory
+            - unMountComponentAtNode()
+                - Release the DOM Created in the memory 
+        - react-dom/test-utils
+            - "@testing-library/react": "^11.2.7",
+            - act() method
+                - Call render() method to render the component in the memory so that the test can be executed on it
+    - Create a 'test' folder
+        - MAke sure that the name of the test code file is
+               - [file].test.js (Recommended)
+               - [file].spec.js
+        - describe('TEST-SUIT-NAME',()=>{ Test Case Definition with Pre-Test Conditions and Post-Test Conditions })
+            - Pre-Test Condition
+                - beforeEach(()=>{ 
+                    // all the common code that is needed for each Test Case
+                    // e.g. Common Object Instances, service class instance, etc.
+                });
+            - Test Case
+                - it('test description'm()=>{
+                    // Test Case Implementation
+                    // 1. Arrange: Define Local variables and other constants needed to execute the test
+                    // 2. Act: Logic for Test
+
+                    // 3. Assert: Verify the Test for Seccess or Fail 
+                });
+            - Post-Test Condition
+                - afterEach(()=>{
+                    // Write the cleanup code taht will be executed after each Test Case
+                });    
+
+
+# Command to Show Code COverage for each file in Project
+npm test --  --coverage --watchAll=false
+
+# To showe only TExt Summary MOdify the package.json with following configiuration
+
+,
+  "jest": {
+    "coverageReporters": ["text-summary"]
+  }
+
 # React.js Assignments
 
 # Date: 17-09-2021
