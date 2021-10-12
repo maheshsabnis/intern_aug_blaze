@@ -1,0 +1,14 @@
+# pull the base image from the docker hub for creating the image for the current application
+FROM node:16-alpine3.11
+# create a work directory in this image where the application is mounted
+WORKDIR /usr/src/app
+# copy the package.json on the image so thatall dependencies will be installed in the image
+COPY package*.json ./
+# run the npm install command so that all dependencies of the package.json will be installed. Install only the production version of dependencies
+RUN npm install --only=production
+# COPY all the othen production files on the image in destination path
+COPY . .
+# expose the port from the containe that hosts the current image so that it can accept calls
+EXPOSE 9080
+# run the application from the container
+CMD [ "npm", "start" ]

@@ -51,3 +51,46 @@ Docker
         - docker pull    [REPOSITOTY-USER-NAME/IMAGE-NAME:TAG]          
 
 
+# Creating a Node.js + Express Microservice
+
+1. Add a 'dockerfile' and '.dockerignore' file in the root of the application to be dockerized
+    - dockerfile
+        - contain all configuration to be added in image
+    - .dockerifnore    
+        - contains all those settings or path that are not added in image
+        - generally the node_modules folder is not copied into the image
+
+
+# Challanges in Implementation [None of the following is headche of Developer]
+1. How to manage multiple Microservices and establish Communicaiton across them?
+    - On-Premises
+        - Docker Engine with Docker Networking to manage multiple Microservices and communication across them
+            - We implement this using 'docker-compose' tool and 'docker-compose.yml'
+        - Use the Kubernetese Service
+            - deployment.yml and service.yml
+            - minikube
+            - microk8s (This is alos used for production for middle-scale apps)   
+    - On-Cloud
+        - Azure Kubernetes Service aka AKS
+        - Elastick Kubernetes Service aka EKS
+        - Google Kubernetes Service aka GKS 
+2. How to design a common gateway for multiple Microservices?
+    - Create a gateway using the coding approach
+        - express-gateway, a free open-source package to create gateway
+            - Good for On-Premises, can be used in cloud but recommended that use the gateway provided by cloud
+    - Kubernetes Gateway services
+        - ingress
+        - istio gateway when using microk8s
+    - EKS with API Gateway on AWS                    
+3. What about the data persistence for the Microservices?
+    - The database must be on the Publically accessible server on premises
+        - Please do not use docker images for database for production 
+    - For Cloud use
+        - RDS with MySQL
+        - DynamoDB
+4. What about the security?
+    - JWT
+    - Cloud Security Authentication (Not a reponsibility of developer)
+5. What about the failure recovery?
+    - Just Create a new IMage in On-Premises
+    - For Kubernetes in CLoud create backup servers using configuration

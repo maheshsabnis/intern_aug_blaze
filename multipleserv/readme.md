@@ -1,0 +1,11 @@
+# managing multiple Microservices on-premises
+- Docker-Compose is a tool provided by docker engine for following
+    - Validate and Build Images
+    - Connect to Docker ENgine to access 
+        - Process Space
+        - Memory
+        - Network Resources
+    - This tool is responsible for managing lifecycle of all running images using 'docker-compose up' command
+        - This command validate dockerfile, build image, start container, load image into the container, expose port from the container, manage dependencies across images using network e.g. accessing database running in other image     
+    - The 'docker-compose down', command used to release all resources occupied by image
+- The docker-compose.yml must be at the root level        

@@ -1,0 +1,13 @@
+version: "3.9"
+
+# define services to be used for buiulding image and running
+
+services:
+  service1: # name of the service created
+    build: serv1 # the folder that contains dockerfile
+    ports:
+      - "9081:9081"  #port mapping with the host machine  
+  service2:
+    build: serv2
+    ports:
+      - "9082:9082" 
