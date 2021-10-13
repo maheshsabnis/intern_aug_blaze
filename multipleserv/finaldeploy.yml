@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indectionservice
+spec:
+  replicas: 3 # number of replicas. This will be maintain even a pod is deleted, The K8s controller will create a new POD and containers in it
+  selector:
+    matchLabels:
+      name: indectionservice
+  template:
+    metadata:
+      labels:
+        name: indectionservice
+    spec:
+      containers:
+        - name: serv1container
+          image: mast007/b1serv1:v1
+          resources:
+            limits:
+              cpu: "500m" # 0.5 CPU
+              memory: "128Mi" # 128 mb
+          ports:
+            - name: http # provide unique port names if deploying multiple services. This name will be matched in the ports section of the service to use the target port
+              containerPort: 9081
+        - name: serv2container
+          image: mast007/b1serv2:v1
+          resources:
+            limits:
+              cpu: "500m" # 0.5 CPU
+              memory: "128Mi" # 128 mb
+          ports:
+            - name: http-second
+              containerPort: 9082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: indectionservice
+spec:
+  selector:
+     name: indectionservice
+  ports: # since there are multiple services hosted in separate container please specify the unitquenames for the port
+    - name: http # the name of the external port assigned to container
+      port: 9081 # external port
+      targetPort: http # container port specified in deployment kind section
+    - name: http-second # the name of the external port assigned to container
+      port: 9082 # external port
+      targetPort: http-second # container port specified in deployment kind section
+  type: LoadBalancer # allows the public access of the service  

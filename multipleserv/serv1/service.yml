@@ -1,0 +1,14 @@
+# the service definition file for microservice to be deployed on K8s
+apiVersion: v1
+kind: Service # The service
+metadata: 
+  labels:
+    app:  node-k8s-service # the service deployment name used by K8s
+  name: node-serv1-service  # the developer friendly name in POD
+spec:
+  ports: # defining ports 
+    - port: 6060  # an external port
+      targetPort: 9081  # port exposed by the container
+  selector:
+    app:  node-serv1-pod  # POD in which the service is deployed   
+  type: LoadBalancer  # to allow the public access to t5he service

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment # the kubernetes deployment configuration
+metadata:
+  name: node-serv1-deployment # dployment name
+  namespace: default # the default namespace for the deployment
+  labels: # used by K8s to read or query the deployment 
+    app:  node-serv1-deployment
+spec: # deployment specifications e.g. POD, replicase, Container, Images, resources, ect.
+  selector:
+    matchLabels: # the name of the POD
+      app:  node-serv1-pod
+  template: # the information of the deployment in POD    
+    metadata:
+      labels:
+        app: node-serv1-pod # search for the POD for deployment
+    spec:
+      containers:
+      - name: node-serv1-container
+        image:   mast007/b1serv1:v1 # note image must be fetched from the HUB
+        resources:
+          limits:
+            cpu:  "500m" # 0.5 CPU
+            memory: "128Mi" # 128mb
+        ports:
+          - containerPort: 9081
+
+
+

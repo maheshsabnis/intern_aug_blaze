@@ -37,6 +37,7 @@
     - get list of pods
         - kubectl get pods
             - This commn will list all pods with their names
+            - the status of the POD must be running
     - get description of a specific pod
         - You need this if any service is not working as per the expectations
             - kubectl describe pod [POD-NAME]     
@@ -85,5 +86,8 @@
             - kubectl delete -f service.yml
         - Delete the deployment
             - kubectl delete -f deployment.yml         
+VERY IMP ****
+    - a single file can be created for deployment and service
+
 
 
