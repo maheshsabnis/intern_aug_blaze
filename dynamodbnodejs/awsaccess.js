@@ -7,9 +7,12 @@ const aws = require('aws-sdk');
 // the AWS
 
 aws.config.update({
-    accessKey:'AKIAW4FKRDGQKRJQEJZW',
-    secretAccessKey:'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',
+    // Access OR Authentication Info
+    accessKey:'',
+    secretAccessKey:'',
+    // Location Info
     region:'us-east-2',
+    // Endpoint (PUBLIC Endpoint)
     endpoint:'https://dynamodb.us-east-2.amazonaws.com'
 });
 
