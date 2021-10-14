@@ -1,0 +1,22 @@
+[
+    {
+        "BusinessUnit": "Database",
+        "InternID": "INTRN-001",
+        "Name": "Sid"
+    },
+    {
+        "BusinessUnit": "Testing",
+        "InternID": "INTRN-002",
+        "Name": "Mayur"
+    },
+    {
+        "BusinessUnit": "Database",
+        "InternID": "INTRN-003",
+        "Name": "Vinal"
+    },
+    {
+        "BusinessUnit": "Testing",
+        "InternID": "INTRN-004",
+        "Name": "Anurag"
+    }
+]
