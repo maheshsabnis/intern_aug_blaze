@@ -16,6 +16,11 @@ const Layout = () => {
                 <a>Index</a>
               </Link>
             </th>
+            <th className={styles.th}>
+              <Link href="/components/callajax">
+                <a>Ajax Calls</a>
+              </Link>
+            </th>
           </tr>
         </thead>
       </table>
