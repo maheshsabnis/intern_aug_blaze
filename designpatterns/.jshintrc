@@ -1,0 +1,6 @@
+{
+    "undef": true, /* the variable MUST be declared*/
+    "unused": true, /*NO variabler or function kept as unUsed, if exists delete it*/
+    "esversion": 6, /*Validate the ES 6 syntax e.g. template string, let, ect*/
+   "node": true /*the code will ve validated against the Node.js*/
+}

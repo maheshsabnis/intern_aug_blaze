@@ -29,12 +29,15 @@ console.log(`o3 = ${JSON.stringify(o3)}`);
 // The Person() is a function object that has
 // the internal Parameterized Constructor()
 function Person(name, age){
+     
     this.name = name;
     this.age  = age;
     this.getDetails = function(){
         console.log(`Details are ${this.name} and ${this.age}`);
-    }
+    };
 }
+
+
 
 const p1 = new Person('Mahesh', 45);
 p1.getDetails();
@@ -45,8 +48,21 @@ class Employee{
     constructor(eno,ename){
         this.eno = eno;
         this.ename = ename;
+        console.log('COnstructor is called');
     }
     getDetails(){
         console.log(`Eno = ${this.eno} and Ename = ${this.ename}`);
     }
 }
+// the 'new' is calling the Constructor
+let e1 = new Employee(101, "Mahesh");
+e1.getDetails();
+// let e2 = new Employee(201, "Neeta");
+// e2.getDetails();
+let e2 = Object.create(e1); // deep copy of the object i.e. schema and data
+e2.getDetails();
+e2.eno=201;
+e2.ename = "Neeta";
+e2.getDetails();
+
+console.log(`Are they same ${e1 === e2}`);
